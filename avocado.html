@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -21,7 +21,17 @@
     <img class="fruit-image"
          src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg"
          alt="Avocado">
-
+    <div class="card">
+    <h2>🥑 About Avocado</h2>
+    <p>
+        Avocado is a creamy, nutrient-rich fruit that is packed with healthy
+        fats, fiber, vitamins E, C, K, and B6, as well as potassium and folate.
+        It supports heart health, improves digestion, promotes healthy skin,
+        helps control cholesterol levels, and provides long-lasting energy.
+        Avocado can be eaten fresh, in salads, sandwiches, smoothies, or as
+        guacamole.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -36,14 +46,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 160 kcal<br>
-            Carbohydrates: 9 g<br>
-            Fiber: 7 g<br>
-            Healthy Fats: 15 g<br>
-            Potassium<br>
-            Vitamin E
-        </p>
+        <ul>
+           <li> Calories: 160 kcal<br>
+           <li> Carbohydrates: 9 g<br>
+           <li> Fiber: 7 g<br>
+           <li> Healthy Fats: 15 g<br>
+           <li> Potassium<br>
+           <li> Vitamin E
+        </ul>
     </div>
 
     <div class="card">
@@ -73,6 +83,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
