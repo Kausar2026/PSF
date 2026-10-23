@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plum - PSF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ <script src="script.js"></script>
+<body>
+
+<header>
+    <h1 id="fruitName">🟣 Plum</h1>
+    <p id="headerText">Freshness You Can Trust</p>
+</header>
+<select id="language" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+</select>
+
+<div class="container">
+
+    <img class="fruit-image" src="plum.jpg" alt="Plum">    
+
+    <div class="card">
+        <h2>🍑 About Plum</h2>
+        <p>
+            Plum is a sweet and juicy fruit rich in vitamins, antioxidants,
+            and dietary fiber. It supports digestion, boosts immunity,
+            and helps keep the body healthy.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💪 Health Benefits</h2>
+        <ul>
+            <li>✔ Rich in Vitamin C and Vitamin K</li>
+            <li>✔ Improves digestion</li>
+            <li>✔ Supports heart health</li>
+            <li>✔ Strengthens immunity</li>
+            <li>✔ Good source of antioxidants</li>
+        </ul>
+    </div>
+    <div class="card">
+    <h2>🥗 Nutrition (Per 100g)</h2>
+    <ul>
+        <li>✔ Calories: 46 kcal</li>
+        <li>✔ Carbohydrates: 11.4 g</li>
+        <li>✔ Protein: 0.7 g</li>
+        <li>✔ Fat: 0.3 g</li>
+        <li>✔ Fiber: 1.4 g</li>
+        <li>✔ Vitamin C: 9.5 mg</li>
+        <li>✔ Vitamin K: 6.4 µg</li>
+        <li>✔ Potassium: 157 mg</li>
+    </ul>
+</div>
+    <div class="card">
+    <h2>⏰ Best Time to Eat</h2>
+    <ul>
+        <li>✔ Morning or evening is the best time to eat plums.</li>
+        <li>✔ Eat 1–2 hours after breakfast or lunch.</li>
+        <li>✔ Avoid eating too many plums on an empty stomach if you have acidity.</li>
+        <li>✔ 2–3 plums per day are enough for most people.</li>
+    </ul>
+</div>
+
+    <div class="card">
+        <h2>📦 Storage Tips</h2>
+        <ul>
+            <li>✔ Keep unripe plums at room temperature.</li>
+            <li>✔ Refrigerate ripe plums to keep them fresh longer.</li>
+            <li>✔ Wash before eating.</li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+
+</div>
+
+<footer>
+    <p id="footerText">™© 2026 PSF | Freshness You Can Trust</p>
+</footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
