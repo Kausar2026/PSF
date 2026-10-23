@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,18 @@
 <div class="container">
 
     <img class="fruit-image" src="guava.jpg" alt="Guava">
+    <div class="card">
+    <h2>🍐 About Guava</h2>
+    <p>
+        Guava is a delicious and highly nutritious tropical fruit that is rich
+        in vitamin C, vitamin A, dietary fiber, potassium, folate, and
+        antioxidants. It helps strengthen the immune system, improves digestion,
+        supports heart health, regulates blood sugar levels, and promotes
+        healthy skin. Guava is low in calories and high in nutrients, making it
+        an excellent fruit for daily consumption. It can be enjoyed fresh, as
+        juice, in fruit salads, smoothies, or desserts.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -33,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 68 kcal<br>
-            Carbohydrates: 14 g<br>
-            Fiber: 5.4 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Folate
-        </p>
+        <ul>
+           <li> Calories: 68 kcal<br>
+           <li> Carbohydrates: 14 g<br>
+           <li> Fiber: 5.4 g<br>
+           <li> Vitamin C<br>
+           <li> Potassium<br>
+           <li> Folate
+        </ul>
     </div>
 
     <div class="card">
@@ -70,6 +82,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
