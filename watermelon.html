@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,16 @@
 <div class="container">
 
   <img class="fruit-image" src="watermelon.jpg" alt="Watermelon">
+    <div class="card">
+    <h2>🍉 About Watermelon</h2>
+    <p>
+        Watermelon is a refreshing and juicy fruit that is rich in water,
+        vitamins A and C, and antioxidants. It helps keep the body hydrated,
+        supports healthy skin, improves digestion, and is a perfect fruit
+        during hot summer days. Watermelon is naturally sweet, low in calories,
+        and enjoyed by people of all ages.
+    </p>
+</div>
 
     <div class="card">
         <h2>🌿 Health Benefits</h2>
@@ -34,14 +44,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 30 kcal<br>
-            Carbohydrates: 8 g<br>
-            Fiber: 0.4 g<br>
-            Vitamin C<br>
-            Vitamin A<br>
-            Water: 91%
-        </p>
+        <ul>
+           <li> Calories: 30 kcal<br>
+           <li> Carbohydrates: 8 g<br>
+           <li> Fiber: 0.4 g<br>
+           <li> Vitamin C<br>
+           <li> Vitamin A<br>
+           <li> Water: 91%
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +81,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
