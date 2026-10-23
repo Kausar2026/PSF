@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,19 @@
 <div class="container">
 
    <img class="fruit-image" src="pear.jpg" alt="Pear">
-
+   
+    <div class="card">
+    <h2>🍐 About Pear</h2>
+    <p>
+        Pear is a sweet, juicy, and highly nutritious fruit that is rich in
+        dietary fiber, vitamin C, vitamin K, potassium, and antioxidants.
+        It helps improve digestion, supports heart health, strengthens the
+        immune system, and promotes healthy skin. Pear is low in calories and
+        high in water content, making it an excellent fruit for hydration and
+        weight management. It can be enjoyed fresh, in salads, desserts, or
+        juices.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +46,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 57 kcal<br>
-            Carbohydrates: 15 g<br>
-            Fiber: 3.1 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Water: 84%
-        </p>
+        <ul>
+         <li> Calories: 57 kcal<br>
+         <li> Carbohydrates: 15 g<br>
+         <li> Fiber: 3.1 g<br>
+         <li> Vitamin C<br>
+         <li> Potassium<br>
+         <li> Water: 84%
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +83,38 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
