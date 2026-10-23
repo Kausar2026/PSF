@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+<script src="script.js"></script>
 <body>
 
 <header>
@@ -21,6 +21,18 @@
     <img class="fruit-image"
          src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg"
          alt="Orange">
+    <div class="card">
+    <h2>🍊 About Orange</h2>
+    <p>
+        Orange is a juicy and refreshing citrus fruit that is rich in vitamin C,
+        dietary fiber, potassium, folate, and antioxidants. It helps strengthen
+        the immune system, improves digestion, supports heart health, keeps the
+        body hydrated, and promotes healthy skin. Oranges are low in calories
+        and provide natural energy, making them an excellent fruit for daily
+        consumption. They can be eaten fresh or used in juices, fruit salads,
+        smoothies, and desserts.
+    </p>
+</div>     
 
     <div class="card">
         <h2>🌿 Health Benefits</h2>
@@ -36,14 +48,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 47 kcal<br>
-            Carbohydrates: 12 g<br>
-            Fiber: 2.4 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Water: 87%
-        </p>
+        <ul>
+           <li> Calories: 47 kcal</li>
+           <li> Carbohydrates: 12 g</li>
+           <li> Fiber: 2.4 g</li>
+           <li> Vitamin C</li>
+           <li> Potassium</li>
+           <li> Water: 87%</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -73,6 +85,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
