@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -20,6 +20,18 @@
 
 <img class="fruit-image" src="blackgrapes.jpg" alt="Black Grapes">
 
+    <div class="card">
+    <h2>🍇 About Black Grapes</h2>
+    <p>
+        Black Grapes are sweet, juicy, and highly nutritious fruits that are
+        rich in vitamins C and K, dietary fiber, potassium, and powerful
+        antioxidants such as resveratrol. They help improve heart health,
+        boost the immune system, support healthy digestion, protect cells from
+        damage, and promote healthy skin. Black Grapes also help keep the body
+        hydrated and provide natural energy. They can be enjoyed fresh, in
+        fruit salads, juices, smoothies, or desserts.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +46,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 69 kcal<br>
-            Carbohydrates: 18 g<br>
-            Fiber: 0.9 g<br>
-            Vitamin C<br>
-            Vitamin K<br>
-            Potassium
-        </p>
+        <ul>
+           <li> Calories: 69 kcal<br>
+           <li> Carbohydrates: 18 g<br>
+           <li> Fiber: 0.9 g<br>
+           <li> Vitamin C<br>
+           <li> Vitamin K<br>
+           <li> Potassium
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +83,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
