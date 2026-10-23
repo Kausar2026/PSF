@@ -4,22 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackberry - PSF</title>
+    <title>Black Grapes - PSF</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
-    <h1>🫐 Blackberry</h1>
+    <h1>🍇 Black Grapes</h1>
     <p>Freshness You Can Trust </p>
 </header>
 
 <div class="container">
 
-   <img class="fruit-image" src="blackberry.jpg" alt="Blackberry">
+<img class="fruit-image" src="blackgrapes.jpg" alt="Black Grapes">
 
+    <div class="card">
+    <h2>🍇 About Black Grapes</h2>
+    <p>
+        Black Grapes are sweet, juicy, and highly nutritious fruits that are
+        rich in vitamins C and K, dietary fiber, potassium, and powerful
+        antioxidants such as resveratrol. They help improve heart health,
+        boost the immune system, support healthy digestion, protect cells from
+        damage, and promote healthy skin. Black Grapes also help keep the body
+        hydrated and provide natural energy. They can be enjoyed fresh, in
+        fruit salads, juices, smoothies, or desserts.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -28,20 +40,20 @@
             <li>💪 Boosts Immunity</li>
             <li>🧠 Supports Brain Health</li>
             <li>🍽️ Improves Digestion</li>
-            <li>✨ Keeps Skin Healthy</li>
+            <li>✨ Promotes Healthy Skin</li>
         </ul>
     </div>
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 43 kcal<br>
-            Carbohydrates: 10 g<br>
-            Fiber: 5.3 g<br>
-            Vitamin C<br>
-            Vitamin K<br>
-            Manganese
-        </p>
+        <ul>
+           <li> Calories: 69 kcal<br>
+           <li> Carbohydrates: 18 g<br>
+           <li> Fiber: 0.9 g<br>
+           <li> Vitamin C<br>
+           <li> Vitamin K<br>
+           <li> Potassium
+        </ul>
     </div>
 
     <div class="card">
@@ -59,8 +71,8 @@
         <ul>
             <li>Store in the refrigerator.</li>
             <li>Wash only before eating.</li>
-            <li>Keep in a covered container.</li>
-            <li>Consume within 3–5 days.</li>
+            <li>Keep in a ventilated container.</li>
+            <li>Consume within 5–7 days.</li>
         </ul>
     </div>
 
@@ -71,6 +83,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
