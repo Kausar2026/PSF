@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSF - Fruit Quality Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .quality-card {
+            background: white;
+            border: 3px solid var(--theme);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 5px 15px #00000012;
+        }
+
+        .quality-card h2 {
+            color: var(--theme);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .quality-card p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .quality-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .quality-note {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #fff4d6;
+            color: #634b00;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 520px) {
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>🍎 PSF</h1>
+    <p>Freshness You Can Trust</p>
+</header>
+
+<!-- Sirf Translate Dropdown -->
+<div class="language-control">
+    <select id="language"
+            aria-label="Select language"
+            onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+    </select>
+</div>
+
+<div class="page-top">
+    <h1 class="title" id="pageTitle">
+        🍎 Fruit Quality Checker Guide
+    </h1>
+
+<!-- Professional Fruit Quality Guide Box -->
+<section class="quality-section">
+
+    <div class="quality-intro">
+        <span class="quality-badge" id="qualityBadge">
+            PSF QUALITY GUIDE
+        </span>
+
+        <h2 id="qualityHeading">
+            🍎 Fruit Quality Guide
+        </h2>
+
+        <p id="qualityIntro">
+            Learn how to identify fresh, ripe and
+            good-quality fruits before buying.
+        </p>
+    </div>
+
+    <!-- Existing quality-grid and quality-card
+         HTML yahan se continue hoga -->
+
+</section>
+
+
+
+  <div class="quality-grid">
+
+    <article class="quality-card">
+      <img src="fresh-fruit.png"
+           alt="Fresh red apple"
+           class="quality-image">
+
+      <div class="quality-content">
+        <span class="quality-label">FRESHNESS</span>
+        <h2 id="freshnessHeading">🍎 Freshness Check</h2>
+        <p id="freshnessText">
+          Look for natural colour, a fresh smell
+          and firm texture where appropriate.
+        </p>
+      </div>
+    </article>
+
+    <article class="quality-card">
+      <img src="ripe-fruit.png"
+           alt="Ripe mango"
+           class="quality-image">
+
+      <div class="quality-content">
+        <span class="quality-label">RIPENESS</span>
+        <h2 id="ripenessHeading">🥭 Ripeness Check</h2>
+        <p id="ripenessText">
+          Check the fruit's variety-specific
+          colour, aroma and gentle firmness.
+        </p>
+      </div>
+    </article>""
+
+    <article class="quality-card">
+      <img src="poor-quality-fruit.png"
+           alt="Fruit showing quality defects"
+           class="quality-image">
+
+      <div class="quality-content">
+        <span class="quality-label">SAFETY TIPS</span>
+        <h2 id="warningHeading">🔍 Warning Signs</h2>
+        <p id="warningText">
+          Avoid fruits with mould, leaking areas,
+          unpleasant smells or extensive damage.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+    <a href="index.html" class="home-btn" id="backHome">
+        🏠 Back to Home
+    </a>
+</div>
+
+<footer>
+    <p id="footerText">
+        © 2026 PSF | Freshness You Can Trust
+    </p>
+</footer>
+
+<script>
+
+const qualityTranslations = {
+    en: {
+        headerTagline: "Freshness You Can Trust",
+        languageLabel: "🌐 Language:",
+
+        pageTitle: "🍎 Fruit Quality Checker Guide",
+        intro: "Learn how to check fruit freshness and identify common signs of poor quality before buying.",
+
+        qualityBadge: "PSF QUALITY GUIDE",
+        qualityHeading: "🍎 Fruit Quality Guide",
+        qualityIntro: "Learn how to identify fresh, ripe and good-quality fruits before buying.",
+
+        freshnessLabel: "FRESHNESS",
+        freshnessHeading: "🍎 Freshness Check",
+        freshnessText: "Look for natural colour, a fresh smell and firm texture where appropriate.",
+
+        ripenessLabel: "RIPENESS",
+        ripenessHeading: "🥭 Ripeness Check",
+        ripenessText: "Check the fruit's variety-specific colour, aroma and gentle firmness.",
+
+        safetyLabel: "SAFETY TIPS",
+        warningHeading: "🔍 Warning Signs",
+        warningText: "Avoid fruits with mould, leaking areas, unpleasant smells or extensive damage.",
+
+        backHome: "🏠 Back to Home",
+        footerText: "© 2026 PSF | Freshness You Can Trust"
+    },
+
+    hi: {
+        headerTagline: "ताज़गी जिस पर आप भरोसा करें",
+        languageLabel: "🌐 भाषा:",
+
+        pageTitle: "🍎 फलों की गुणवत्ता जाँच गाइड",
+        intro: "फल खरीदने से पहले उनकी ताज़गी और खराब गुणवत्ता के सामान्य संकेत पहचानना सीखें।",
+
+        qualityBadge: "PSF गुणवत्ता गाइड",
+        qualityHeading: "🍎 फलों की गुणवत्ता जाँच गाइड",
+        qualityIntro: "फल खरीदने से पहले ताज़े, पके और अच्छी गुणवत्ता वाले फलों की पहचान करना सीखें।",
+
+        freshnessLabel: "ताज़गी",
+        freshnessHeading: "🍎 ताज़गी की जाँच",
+        freshnessText: "फल के प्रकार के अनुसार उसका प्राकृतिक रंग, ताज़ी खुशबू और उचित बनावट देखें।",
+
+        ripenessLabel: "पकाव",
+        ripenessHeading: "🥭 पकने की जाँच",
+        ripenessText: "फल के प्रकार के अनुसार उसके रंग, खुशबू और हल्के दबाव पर उसकी बनावट देखें।",
+
+        safetyLabel: "सुरक्षा सुझाव",
+        warningHeading: "🔍 खराब गुणवत्ता के संकेत",
+        warningText: "फफूँद, रिसाव, दुर्गंध या बहुत अधिक नरम और क्षतिग्रस्त हिस्सों वाले फल खरीदने से बचें।",
+
+        backHome: "🏠 होम पेज पर वापस जाएँ",
+        footerText: "© 2026 PSF | ताज़गी जिस पर आप भरोसा करें"
+    }
+};
+
+function changeLanguage() {
+    const languageSelect = document.getElementById("language");
+    const lang = languageSelect.value;
+
+    const content = qualityTranslations[lang];
+
+    if (!content) return;
+
+    Object.keys(content).forEach(function(id) {
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.textContent = content[id];
+        }
+    });
+
+    document.documentElement.lang = lang;
+
+    try {
+        localStorage.setItem("psfQualityLanguage", lang);
+    } catch (error) {
+        console.warn("Language preference could not be saved.");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const languageSelect = document.getElementById("language");
+
+    if (!languageSelect) return;
+
+    let savedLanguage = "en";
+
+    try {
+        savedLanguage =
+            localStorage.getItem("psfQualityLanguage") || "en";
+    } catch (error) {
+        savedLanguage = "en";
+    }
+
+    languageSelect.value =
+        qualityTranslations[savedLanguage] ? savedLanguage : "en";
+
+    changeLanguage();
+});

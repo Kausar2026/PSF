@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raspberry - PSF</title>
+
+<!-- Common CSS -->
+<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef7ef;
+}
+
+header{
+    background:#149647;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+header h1{
+    font-size:30px;
+}
+
+header p{
+    font-size:16px;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:35px auto;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#149647;
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.card p,
+.card li{
+    font-size:18px;
+    line-height:1.8;
+    color:#444;
+}
+
+.card ul{
+    margin-left:25px;
+}
+
+img{
+    width:100%;
+    border-radius:20px;
+    margin-bottom:25px;
+}
+
+.button{
+    display:block;
+    width:320px;
+    margin:40px auto;
+    background:#149647;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:15px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.button:hover{
+    background:#0d7b39;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍓 Raspberry</h1>
+<p>Fresh • Safe • Healthy</p>
+</header>
+
+<div class="container">
+
+<img src="Raspberry.jpg" alt="Raspberry">
+
+<div class="card">
+<h2>🍓 About Raspberry</h2>
+<p>
+Raspberry is a delicious berry rich in vitamins, antioxidants and fibre.
+It helps improve immunity, supports heart health and promotes healthy digestion.
+Raspberries are low in calories and are an excellent choice for a healthy diet.
+</p>
+</div>
+
+<div class="card">
+<h2>🌿 Health Benefits</h2>
+<ul>
+<li>❤️ Boosts immunity</li>
+<li>🧠 Improves brain health</li>
+<li>🩸 Supports heart health</li>
+<li>🥗 Rich in dietary fibre</li>
+<li>⚡ Gives natural energy</li>
+<li>🛡️ High in antioxidants</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🥗 Nutrition (Per 100g)</h2>
+<ul>
+<li>Calories : 52 kcal</li>
+<li>Vitamin C : 26 mg</li>
+<li>Fibre : 6.5 g</li>
+<li>Potassium : 151 mg</li>
+<li>Carbohydrates : 12 g</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⏰ Best Time to Eat</h2>
+<p>Morning breakfast, evening snack or after exercise.</p>
+</div>
+
+<div class="card">
+<h2>🧊 Storage Tips</h2>
+<ul>
+<li>Keep refrigerated.</li>
+<li>Wash only before eating.</li>
+<li>Consume within 2–3 days.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⚠️ Note</h2>
+<p>Wash thoroughly before eating and avoid spoiled berries.</p>
+</div>
+
+<a href="index.html" class="button">🏠 Back to Home</a>
+
+</div>
+
+<!-- JavaScript hamesha body ke end me -->
+<script src="script.js"></script>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

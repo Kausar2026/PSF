@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSF Fruits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="home-box">🏠 Home</a>
+    <img src="logo.png" class="main-logo" alt="PSF Logo">
+    <h1>PSF</h1>
+    <p>Freshness You Can Trust</p>
+</header>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="search-container">
+    <input
+        type="text"
+        id="searchBox"
+        class="search-box"
+        placeholder="🔍 Search Fruits..."
+        onkeyup="searchFruit()"
+    >
+    <span id="micBtn" class="material-icons mic-icon" onclick="startVoiceSearch()">
+        mic
+    </span>
+</div>
+    
+<div id="fruitList">
+    <a href="apple.html" class="fruit-btn fruit-item" data-order="1">🍎 Apple</a>
+
+<a href="avocado.html" class="fruit-btn fruit-item" data-order="3">🥑 Avocado</a>
+<a href="banana.html" class="fruit-btn fruit-item" data-order="4">🍌 Banana</a>
+<a href="blackberry.html" class="fruit-btn fruit-item" data-order="5">🫐 Blackberry</a>
+<a href="blackgrapes.html" class="fruit-btn fruit-item" data-order="6">🍇 Black Grapes</a>
+<a href="blueberry.html" class="fruit-btn fruit-item" data-order="7">🫐 Blueberry</a>
+<a href="cherry.html" class="fruit-btn fruit-item" data-order="8">🍒 Cherry</a>
+<a href="Chiku.html" class="fruit-btn fruit-item" data-order="9">🥥 Chiku</a>
+<a href="custardapple.html" class="fruit-btn fruit-item" data-order="10">🍈 Custard Apple</a>
+<a href="dragonfruit.html" class="fruit-btn fruit-item" data-order="11"> Dragon Fruit</a>
+<a href="Fig.html" class="fruit-btn fruit-item" data-order="2">🟣Fig</a>
+<a href="grapes.html" class="fruit-btn fruit-item" data-order="12">🍇 Grapes</a>
+<a href="greenapple.html" class="fruit-btn fruit-item" data-order="13">🍏 Green Apple</a>
+<a href="guava.html" class="fruit-btn fruit-item" data-order="14">🍐 Guava</a>
+<a href="kiwi.html" class="fruit-btn fruit-item" data-order="15">🥝 Kiwi</a>
+<a href="mango.html" class="fruit-btn fruit-item" data-order="16">🥭 Mango</a>
+<a href="muskmelon.html" class="fruit-btn fruit-item" data-order="17">🍈 Muskmelon</a>
+<a href="olive.html" class="fruit-btn fruit-item" data-order="18">🫒 Olive</a>
+<a href="orange.html" class="fruit-btn fruit-item" data-order="19">🍊 Orange</a>
+<a href="papaya.html" class="fruit-btn fruit-item" data-order="20">🍈 Papaya</a>
+<a href="peach.html" class="fruit-btn fruit-item" data-order="21">🍑 Peach</a>
+<a href="pear.html" class="fruit-btn fruit-item" data-order="22">🍐 Pear</a>
+<a href="pineapple.html" class="fruit-btn fruit-item" data-order="23">🍍 Pineapple</a>
+<a href="pomegranate.html" class="fruit-btn fruit-item" data-order="24">❤️ Pomegranate</a>
+<a href="plum.html" class="fruit-btn fruit-item" data-order="25">🟣 Plum</a>
+<a href="Raspberry.html" class="fruit-btn fruit-item" data-order="26">🍓 Raspberry</a>
+<a href="strawberry.html" class="fruit-btn fruit-item" data-order="27">🍓 Strawberry</a>
+<a href="sweetlime.html" class="fruit-btn fruit-item" data-order="28">🍋 Sweet Lime</a>
+<a href="watermelon.html" class="fruit-btn fruit-item" data-order="29">🍉 Watermelon</a>
+</div>
+
+
+<div style="text-align:center; margin:30px;">
+   
+<script>
+function searchFruit() {
+
+    let input = document.getElementById("searchBox").value.toLowerCase().trim();
+
+    let list = document.getElementById("fruitList");
+    let items = Array.from(document.querySelectorAll(".fruit-item"));
+
+    let found = 0;
+
+    items.forEach(item => {
+
+        let text = item.textContent.toLowerCase();
+
+        if (text.includes(input)) {
+            item.style.display = "block";
+            list.prepend(item);   // matching fruits upar
+            found++;
+        } else {
+            item.style.display = input === "" ? "block" : "none";
+        }
+
+    });
+
+    // Original order jab search empty ho
+    if (input === "") {
+        items.sort((a,b)=>a.dataset.order-b.dataset.order);
+        items.forEach(item=>{
+            item.style.display="block";
+            list.appendChild(item);
+        });
+    }
+
+    // Not Found message
+    let msg = document.getElementById("notFound");
+
+    if(!msg){
+        msg=document.createElement("h2");
+        msg.id="notFound";
+        msg.style.textAlign="center";
+        msg.style.color="red";
+        msg.style.marginTop="20px";
+        msg.innerText="❌ No Fruit Found";
+        list.after(msg);
+    }
+
+    msg.style.display = found ? "none" : "block";
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
