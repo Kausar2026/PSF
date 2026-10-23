@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,18 @@
 <div class="container">
 
     <img class="fruit-image" src="custardapple.jpg" alt="Custard Apple">
+    <div class="card">
+    <h2>🍈 About Custard Apple</h2>
+    <p>
+        Custard Apple, also known as Sugar Apple or Sitaphal, is a sweet,
+        creamy, and highly nutritious tropical fruit. It is rich in vitamins C
+        and B6, dietary fiber, potassium, magnesium, and antioxidants. Custard
+        Apple helps improve digestion, boosts the immune system, supports heart
+        health, strengthens bones, and provides natural energy. Its soft,
+        creamy flesh makes it a delicious and healthy fruit that can be enjoyed
+        fresh, in smoothies, desserts, or milkshakes.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -33,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 94 kcal<br>
-            Carbohydrates: 24 g<br>
-            Fiber: 4.4 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Magnesium
-        </p>
+        <ul>
+           <li> Calories: 94 kcal<br>
+           <li> Carbohydrates: 24 g<br>
+           <li> Fiber: 4.4 g<br>
+           <li> Vitamin C<br>
+           <li> Potassium<br>
+           <li> Magnesium
+        </ul>
     </div>
 
     <div class="card">
@@ -70,6 +82,22 @@
 <footer>
     <p>© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
