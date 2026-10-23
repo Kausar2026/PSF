@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,17 @@
 <div class="container">
 
    <img class="fruit-image" src="papaya.jpg" alt="Papaya">
+    <div class="card">
+    <h2>🍈 About Papaya</h2>
+    <p>
+        Papaya is a tropical fruit that rich in vitamins A, C, and E, fiber,
+        folate, and antioxidants. It contains an enzyme called papain, which
+        helps improve digestion and supports gut health. Papaya strengthens the
+        immune system, promotes healthy skin, supports eye health, and helps
+        reduce inflammation. It is best enjoyed fresh, in fruit salads,
+        smoothies, or juices.
+    </p>
+</div>
         
 
     <div class="card">
@@ -35,14 +46,15 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 43 kcal<br>
-            Carbohydrates: 11 g<br>
-            Fiber: 1.7 g<br>
-            Vitamin A<br>
-            Vitamin C<br>
-            Potassium
-        </p>
+        
+        <ul>
+          <li>  Calories: 43 kcal</li>
+          <li>  Carbohydrates: 11 g</li>
+          <li> Fiber: 1.7 g</li>
+          <li>Vitamin A</li>
+          <li>Vitamin C</li>
+          <li> Potassium</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -72,6 +84,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
