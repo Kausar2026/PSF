@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+<script src="script.js"></script>
 <body>
 
 <header>
@@ -21,6 +21,18 @@
     <img class="fruit-image"
          src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg"
          alt="Mango">
+    <div class="card">
+    <h2>🥭 About Mango</h2>
+    <p>
+        Mango is known as the "King of Fruits" because of its delicious taste
+        and rich nutritional value. It is an excellent source of vitamin A,
+        vitamin C, vitamin E, dietary fiber, potassium, and antioxidants.
+        Mango helps strengthen the immune system, improves digestion, supports
+        eye health, promotes healthy skin, and provides natural energy. It is
+        a refreshing tropical fruit that can be enjoyed fresh, in juices,
+        smoothies, desserts, and fruit salads.
+    </p>
+</div>     
 
     <div class="card">
         <h2>🌿 Health Benefits</h2>
@@ -36,14 +48,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 60 kcal<br>
-            Carbohydrates: 15 g<br>
-            Fiber: 1.6 g<br>
-            Vitamin A<br>
-            Vitamin C<br>
-            Potassium
-        </p>
+        <ul>
+         <li> Calories: 60 kcal</li>
+         <li>Carbohydrates: 15 g</li>
+         <li> Fiber: 1.6 g</li>
+         <li> Vitamin A</li>
+         <li>Vitamin C</li>
+         <li>  Potassium</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -73,6 +85,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
