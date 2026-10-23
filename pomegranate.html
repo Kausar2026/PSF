@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,17 @@
 <div class="container">
 
     <img class="fruit-image" src="pomegranate.jpg" alt="Pomegranate">
-
+    <div class="card">
+    <h2>About Pomegranate</h2>
+    <p>
+        Pomegranate is a sweet and juicy fruit that is rich in vitamins C and K,
+        dietary fiber, potassium, folate, and powerful antioxidants. It helps
+        boost the immune system, supports heart health, improves digestion,
+        increases hemoglobin levels, and protects the body from harmful free
+        radicals. Pomegranate also promotes healthy skin and provides natural
+        energy. It can be enjoyed fresh, as juice, in salads, or desserts.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +44,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 83 kcal<br>
-            Carbohydrates: 19 g<br>
-            Fiber: 4 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Folate
-        </p>
+        <ul>
+           <li> Calories: 83 kcal<br>
+           <li> Carbohydrates: 19 g<br>
+           <li> Fiber: 4 g<br>
+           <li> Vitamin C<br>
+           <li> Potassium<br>
+           <li> Folate
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +81,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
