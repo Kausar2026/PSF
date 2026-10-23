@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+ <script src="script.js"></script>
 <header>
     <h1>🍇 Grapes </h1>
     <p>Freshness You Can Trust </p>
@@ -21,6 +21,19 @@
     <img class="fruit-image"
          src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Table_grapes_on_white.jpg"
          alt="Grapes">
+    <div class="card">
+    <h2>🍇 About Grapes</h2>
+    <p>
+        Grapes are small, sweet, and juicy fruits that grow in clusters on
+        vines. They are rich in vitamin C, vitamin K, potassium, dietary fiber,
+        and powerful antioxidants such as resveratrol. Grapes help improve
+        heart health, strengthen the immune system, support digestion, keep the
+        body hydrated, and protect cells from damage caused by free radicals.
+        They also provide natural energy and promote healthy skin. Grapes can
+        be eaten fresh or used in juices, salads, smoothies, raisins, and
+        desserts.
+    </p>
+</div>     
 
     <div class="card">
         <h2>🌿 Health Benefits</h2>
@@ -36,14 +49,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 69 kcal<br>
-            Carbohydrates: 18 g<br>
-            Fiber: 0.9 g<br>
-            Vitamin C<br>
-            Vitamin K<br>
-            Potassium
-        </p>
+        <ul>
+          <li> Calories: 69 kcal</li>
+          <li> Carbohydrates: 18 g</li>
+          <li>  Fiber: 0.9 g</li>
+          <li> Vitamin C</li>
+          <li> Vitamin K</li>
+          <li> Potassium</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -73,6 +86,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
