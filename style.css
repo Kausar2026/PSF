@@ -13,7 +13,9 @@ body{
     background:#eef8ef;
     color:#333;
 }
-
+:root{
+    --theme:#16a34a;
+}
 /* Header */
 header{
     background:#0B8F4D;
@@ -21,18 +23,6 @@ header{
     text-align:center;
     padding:20px;
 }
-
-.logo,
-header h1{
-    font-size:38px;
-    font-weight:bold;
-}
-
-header p{
-    margin-top:8px;
-    font-size:18px;
-}
-
 /* Home Page */
 .hero{
     padding:40px 20px;
@@ -47,14 +37,32 @@ header p{
 .hero p{
     margin-bottom:30px;
 }
-
+.box-link{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
 .box{
     background:#fff;
-    max-width:700px;
+    max-width:500px;
+    min-height:100px;
     margin:20px auto;
     padding:25px;
-    border-radius:15px;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    border-radius:20px;
+    border:4px solid var(--theme);
+    box-shadow:0 8px 20px rgba(11,143,77,0.15);
+    transition:0.3s;
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.box:hover{
+    border-color:#0B8F4D;
+    box-shadow:0 10px 25px rgba(11,143,77,0.25);
 }
 
 /* Fruit Pages */
@@ -72,21 +80,17 @@ header p{
     border-radius:15px;
     box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
-
 .card{
     background:#fff;
     margin-bottom:30px;
     padding:30px;
-    border-radius:15px;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
-}
+    border-radius:20px;
 
-.card h2{
-    color:#0B8F4D;
-    font-size:30px;
-    margin-bottom:18px;
-}
+    border:4px solid #A8DCC3;   /* Light Green Border */
 
+    box-shadow:0 8px 20px rgba(11,143,77,0.15);
+    transition:0.3s;
+}
 .card ul{
     padding-left:35px;
 }
@@ -100,27 +104,6 @@ header p{
 .card p{
     line-height:1.8;
     font-size:20px;
-}
-
-/* Button */
-.home-btn,
-.btn{
-    display:block;
-    width:250px;
-    margin:35px auto;
-    padding:15px;
-    text-align:center;
-    text-decoration:none;
-    background:#0B8F4D;
-    color:white;
-    border-radius:10px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.home-btn:hover,
-.btn:hover{
-    background:#08753e;
 }
 
 /* Sidebar */
@@ -155,27 +138,6 @@ header p{
 .sidebar::-webkit-scrollbar-thumb{
     background:#fff;
     border-radius:10px;
-}
-
-/* Menu Items */
-.sidebar a{
-    display:block;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 20px;
-    font-size:22px;
-    font-weight:600;
-    border-bottom:1px solid rgba(255,255,255,0.15);
-    transition:0.3s;
-}
-
-.sidebar a:hover{
-    background:#08753e;
-    padding-left:28px;
-}
-
-.sidebar a:hover{
-    background:#08753e;
 }
 
 .closebtn{
@@ -222,4 +184,916 @@ footer{
     color:white;
     text-align:center;
     padding:15px;
+}
+
+.title{
+    text-align:center;
+    color:#149647;
+    margin:25px 0;
+}
+
+.fruit-btn{
+    display:block;
+    background:#16a34a;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    padding:25px;
+    margin:12px 0;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+/* Remove underline from all links */
+a{
+    text-decoration: none;
+}
+
+.box a,
+.feature-card a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.box a:hover,
+.feature-card a:hover{
+    text-decoration: none;
+}
+.box h2{
+    font-size:20px;
+    margin:0 0 10px; 
+    font-weight:bold;
+}
+
+.box p{
+    font-size:17px;
+    margin:0;
+    line-height:1.5;
+}
+.qr-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.qr-item{
+    background:#fff;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+.qr-image{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    display:block;
+    margin:15px auto;
+}
+.home-btn{
+    display:block;
+    width:260px;
+    margin:40px auto;
+    padding:15px;
+    background:#0B8F4D;
+    color:white !important;
+    text-decoration:none !important;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.home-btn:hover{
+    background:#08703b;
+}
+/* Language section */
+.language-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 20px;
+    color: white;
+    font-size: 22px;   /* Contact ke barabar */
+    font-weight: bold;
+}
+
+.language-box label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.language-box select{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    background: lightcyan;
+    color: black;
+}
+.card{
+    display: block;
+    background: #fff;
+    margin: 30px 0;
+    padding: 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+.card h2{
+    color:#0B8F4D;
+    font-size:20px;
+    margin-bottom:10px;
+    font-weight:700;
+}
+.card p{
+    color: #5a2a8b;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+.header{
+    position: relative;
+    background:#0B8F4D;
+    color:white;
+    text-align:center;
+    padding:10px 20px;
+}
+
+.main-logo{
+    width:55px;      /* tumhare code me galti se 55x likha hai */
+    height:55px;
+    border-radius:50%;
+    margin-bottom:10px;
+}
+
+.header h1{
+    color:white;
+    font-size:42px;
+    margin:0;
+    margin-top:-8px;
+    line-height:1;
+}
+
+.header p{
+    color:white;
+    font-size:18px;
+    margin:2px 0 0;
+    line-height:1.1;
+}
+
+.home-box{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:white;
+    color:#169647;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:16px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+    z-index:100;
+}
+.feedback-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;   /* flex mat rakho */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.feedback-box{
+    width: 90%;
+    max-width: 380px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    position: relative;
+    z-index: 10000;
+}
+.feedback-box textarea{
+    width:100%;
+    height:90px;
+    margin:15px 0;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:none;
+    box-sizing:border-box;
+}
+
+.feedback-box button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#169647;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+.stars{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:20px 0;
+}
+
+.stars span{
+    font-size:50px;
+    cursor:pointer;
+    color:#cfcfcf;
+    transition:0.3s;
+    user-select:none;
+}
+
+.stars span:hover{
+    transform:scale(1.15);
+}
+
+.stars span.active{
+    color:#FFD700;
+}
+.success-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(8px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    animation:fadeIn .35s ease;
+}
+
+.success-box{
+    width:90%;
+    max-width:340px;
+    background:linear-gradient(135deg,#ffffff,#f4fff6);
+    border-radius:28px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.30);
+    animation:popup .45s ease;
+}
+
+.success-icon{
+    width:85px;
+    height:85px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#18c35d,#0b8d41);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    color:#fff;
+    box-shadow:0 8px 25px rgba(24,195,93,.4);
+}
+
+.success-box h2{
+    margin:18px 0 8px;
+    color:#138b43;
+    font-size:30px;
+    font-weight:700;
+}
+
+.success-box p{
+    color:#666;
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.success-box button{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#1fc85e,#0f8d43);
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.success-box button:hover{
+    transform:scale(1.03);
+}
+
+@keyframes popup{
+    from{
+        transform:translateY(40px) scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+.theme-toggle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10px;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.switch{
+    position:relative;
+    width:60px;
+    height:34px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#ccc;
+    border-radius:34px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:26px;
+    height:26px;
+    left:4px;
+    top:4px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:#2196F3;
+}
+
+input:checked + .slider::before{
+    transform:translateX(26px);
+}
+/* ==========================
+   BLUE THEME
+========================== */
+
+body.blue{
+    background:#eaf4ff;
+}
+
+/* Header */
+body.blue header,
+body.blue .header{
+    background:#1976D2;
+}
+
+/* Sidebar */
+body.blue .sidebar{
+    background:#1565C0;
+}
+
+body.blue .sidebar a:hover{
+    background:#0D47A1;
+}
+
+/* Footer */
+body.blue footer{
+    background:#1976D2;
+}
+
+/* Home Boxes */
+body.blue .box,
+body.blue .card{
+    border:2px solid #90CAF9;
+}
+
+body.blue .hero h1,
+body.blue .title,
+body.blue .card h2{
+    color:#1976D2;
+}
+
+/* Fruit Buttons */
+body.blue .fruit-btn{
+    background:linear-gradient(135deg,#2196F3,#1565C0);
+}
+
+body.blue .fruit-btn:hover{
+    background:linear-gradient(135deg,#42A5F5,#1976D2);
+}
+
+/* Home Button */
+body.blue .home-btn{
+    background:#1976D2;
+}
+
+body.blue .home-btn:hover{
+    background:#1565C0;
+}
+
+/* Menu Icon */
+body.blue .menu-icon{
+    color:#fff;
+}
+.qr-actions{
+    text-align:center;
+    margin-top:3px;   /* QR code se sirf 3px gap */
+}
+.download-link,
+.share-link{
+    display:inline-block;
+    margin:5px;
+    color:#0B8F4D;
+    font-size:10px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.download-link:hover,
+.share-link:hover{
+    text-decoration:underline;
+}
+header,
+.header{
+    background:var(--theme);
+}
+.hero h1,
+.hero p,
+.title{
+    color:var(--theme);
+}
+
+.box,
+.card,
+.qr-box{
+    border:4px solid var(--theme);
+}
+
+.box h2,
+.box h3,
+.box p,
+.card h2,
+.card h3,
+.card p,
+.qr-box h2,
+.qr-box p{
+    color:var(--theme) !important;
+}
+
+body.blue{
+    --theme:#1976D2;
+    background:#eaf4ff
+}
+.search-box{
+    width:90%;
+    max-width:500px;
+    padding:15px 20px;
+    margin:20px auto 30px;
+    display:block;
+    border:3px solid var(--theme);
+    border-radius:40px;
+    font-size:18px;
+    outline:none;
+}
+
+.search-box:focus{
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+.search-container{
+    position:relative;
+    width:90%;
+    max-width:600px;
+    margin:25px auto;
+}
+
+.search-box{
+    width:100%;
+    padding:18px 55px 18px 20px;
+}
+
+.mic-icon{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:32px;
+    color:#666;
+    cursor:pointer;
+}
+
+/* PSF Professional Quality Guide */
+
+.quality-section {
+    width: 92%;
+    max-width: 1050px;
+    margin: 35px auto;
+}
+
+.quality-intro {
+    text-align: center;
+    padding: 25px 10px 35px;
+}
+
+.quality-badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #08753e;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.quality-intro h1 {
+    color: #0b8f4d;
+    font-size: clamp(27px, 5vw, 42px);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.quality-intro p {
+    max-width: 650px;
+    margin: auto;
+    color: #4b5563;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.quality-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 25px;
+}
+
+.quality-card {
+    background: #fff;
+    border: 1px solid #d7eadc;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(11, 143, 77, 0.09);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(11, 143, 77, 0.16);
+}
+
+.quality-image {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #f0fdf4;
+}
+
+.quality-content {
+    padding: 24px;
+    text-align: left;
+}
+
+.quality-label {
+    display: inline-block;
+    color: #0b8f4d;
+    background: #ecfdf3;
+    border-radius: 6px;
+    padding: 6px 9px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+}
+
+.quality-content h2 {
+    color: #087b40;
+    font-size: 22px;
+    margin: 14px 0 12px;
+    line-height: 1.4;
+}
+
+.quality-content p {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .quality-section {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .quality-grid {
+        gap: 20px;
+    }
+
+    .quality-image {
+        height: 200px;
+    }
+
+    .quality-content {
+        padding: 20px;
+    }
+}
+
+/* PSF Professional Page Heading */
+
+.page-top {
+    width: 92%;
+    max-width: 1050px;
+    margin: 28px auto 20px;
+}
+
+.page-top .title {
+    font-size: clamp(30px, 5.5vw, 44px);
+    line-height: 1.3;
+    text-align: center;
+    color: #087b40;
+    margin: 0 0 20px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* Language below heading, aligned left */
+
+.language-control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 28px;
+}
+
+.language-control label {
+    font-size: 16px;
+    color: #374151;
+}
+
+.language-control select {
+    min-width: 125px;
+    padding: 12px;
+    border: 1px solid #b8c7bd;
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-size: 15px;
+}
+
+/* Professional Fruit Quality Guide Box */
+
+.quality-intro {
+    background: linear-gradient(145deg, #ffffff, #f0fff5);
+    border: 1px solid #ccebd6;
+    border-left: 5px solid #159650;
+    border-radius: 22px;
+    padding: 30px 24px;
+    margin: 0 0 30px;
+    text-align: center;
+    box-shadow: 0 10px 28px rgba(11, 143, 77, 0.10);
+}
+
+.quality-badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #08753e;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.quality-intro h2 {
+    color: #087b40;
+    font-size: clamp(25px, 4.5vw, 34px);
+    line-height: 1.35;
+    margin: 0 0 14px;
+}
+
+.quality-intro p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #4b5563;
+    font-size: 17px;
+    line-height: 1.;
+}
+
+@media (max-width: 600px) {
+    .page-top {
+        width: 92%;
+        margin-top: 22px;
+    }
+
+    .page-top .title {
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+
+    .language-control {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .quality-intro {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .quality-intro p {
+        font-size: 16px;
+    }
+}
+
+/* PSF AI Floating Button - Home Page */
+
+.psf-ai-section {
+    position: fixed !important;
+    right: 16px !important;
+    bottom: 18px !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    z-index: 9998 !important;
+}
+
+.psf-ai-section .psf-chat-toggle {
+    position: static !important;
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    padding: 5px !important;
+    border: 3px solid #d8f5df !important;
+    border-radius: 50% !important;
+    background: linear-gradient(145deg, #20a65a, #08753e) !important;
+    color: #fff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    font-size: 10px !important;
+    box-shadow: 0 4px 14px #0003 !important;
+    cursor: pointer;
+}
+
+.psf-ai-section .psf-ai-icon {
+    font-size: 23px !important;
+    line-height: 1.2;
+}
+
+/* Welcome section ke neeche extra gap nahi */
+
+.welcome-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Mobile screen */
+
+@media (max-width: 600px) {
+    .psf-ai-section {
+        right: 12px !important;
+        bottom: 16px !important;
+    }
+
+    .psf-ai-section .psf-chat-toggle {
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+    }
+}
+
+/* 🍎 PSF AI - Automatic Colour Changing Button */
+
+.psf-ai-section .psf-chat-toggle {
+    animation:
+        psfAIColorChange 8s linear infinite,
+        psfAIPulse 2s ease-in-out infinite !important;
+
+    transform-origin: center;
+    will-change: filter, transform;
+}
+
+/* Automatically colour change */
+
+@keyframes psfAIColorChange {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    25% {
+        filter: hue-rotate(65deg);
+    }
+
+    50% {
+        filter: hue-rotate(140deg);
+    }
+
+    75% {
+        filter: hue-rotate(230deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Gentle pulse effect */
+
+@keyframes psfAIPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+/* Touch karne par animation temporarily stop */
+
+.psf-ai-section .psf-chat-toggle:hover {
+    animation-play-state: paused !important;
+}
+
+/* Accessibility: reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+    .psf-ai-section .psf-chat-toggle {
+        animation: none !important;
+        filter: none !important;
+    }
+}
+
+/* Website sidebar menu */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 280px;
+  max-width: 85vw;
+  z-index: 1001;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.menu-open {
+  transform: translateX(0);
+}
+
+/* Background overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.overlay.overlay-open {
+  display: block;
 }
