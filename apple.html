@@ -8,20 +8,29 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <h1>🍎 Apple</h1>
     <p>Freshness You Can Trust </p>
 </header>
+<select id="language" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+</select>
 
 <div class="container">
 
-    <img class="fruit-image"
-         src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
-         alt="Apple">
-
+    <img class="fruit-image" src="Apple.png" alt="Apple">
+    <div class="card">
+    <h2>🍎 About Apple</h2>
+    <p>
+        Apple is one of the most popular and nutritious fruits in the world.
+        It is rich in vitamins, fiber, and antioxidants that help keep the body
+        healthy. Apples come in different varieties such as Red, Green, and
+        Golden apples, each with its own unique taste and benefits.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -36,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 52 kcal<br>
-            Carbohydrates: 14 g<br>
-            Fiber: 2.4 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Water: 86%
-        </p>
+        <ul>
+           <li>  Calories: 52 kcal</li>
+           <li> Carbohydrates: 14 g</li>
+           <li>Fiber: 2.4 g</li>
+           <li> Vitamin C</li>
+           <li> Potassium</li>
+           <li>  Water: 86%</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -71,8 +80,24 @@
 </div>
 
 <footer>
-    <p>™© 2026 PSF</p>
-</footer>
+    <p>™© 2026 PSF</p
+    </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
