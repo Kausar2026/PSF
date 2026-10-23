@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,18 @@
 <div class="container">
 
    <img class="fruit-image" src="sweetlime.png" alt="sweetlime">
-
+    
+    <div class="card">
+    <h2>🍋 About Sweet Lime</h2>
+    <p>
+        Sweet Lime, also known as Mosambi, is a juicy and refreshing citrus
+        fruit that is rich in vitamin C, dietary fiber, potassium, and
+        antioxidants. It helps boost the immune system, improves digestion,
+        keeps the body hydrated, supports healthy skin, and provides instant
+        energy. Sweet Lime is low in calories and is commonly enjoyed as fresh
+        fruit or juice, especially during hot weather.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 43 kcal<br>
-            Carbohydrates: 9 g<br>
-            Fiber: 2.8 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Water: 88%
-        </p>
+        <ul>
+           <li> Calories: 43 kcal<br>
+           <li> Carbohydrates: 9 g<br>
+           <li> Fiber: 2.8 g<br>
+           <li> Vitamin C<br>
+           <li> Potassium<br>
+           <li> Water: 88%
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +82,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
