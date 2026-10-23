@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- Overlay -->
@@ -17,82 +16,115 @@
 <div id="sidebar" class="sidebar">
 
 <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
-<a href="aboutus .html">ℹ️ About</a>
+<div id="sideMenu" class="side-menu">
+    <a href="index.html" id="home">🏠 Home</a>
+    <a href="aboutus.html" id="about">ℹ️ About</a>
+    <a href="contact.html" id="contact">📞 Contact</a>
+    <hr>
+    <div class="menu-item language-box">
+    <span id="languageText">🌐 Language</span>
 
-<h3 class="menu-title"> Fruits</h3>
+    <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+    </select>
+</div>
+</div>
+<a href="javascript:void(0)" id="feedbackMenu" onclick="openFeedback()">
+    💬 Feedback
+</a>
+<div class="theme-toggle">
 
-<a href="apple.html">🍎 Apple</a>
-<a href="Anjir.html"> Anjir</a>
-<a href="avocado.html">🥑 Avocado</a>
-<a href="banana.html">🍌 Banana</a>
-<a href="blackberry.html"> Blackberry</a>
-<a href="blackgrapes.html">🍇 Black Grapes</a>
-<a href="blueberry.html">🫐 Blueberry</a>
-<a href="cherry.html">🍒 Cherry</a>
-<a href="Chiku.html"> Chiku</a>
-<a href="custardapple.html">🍈 Custard Apple</a>
-<a href="dragonfruit.html"> Dragon Fruit</a>
-<a href="grapes.html"> Grapes</a>
-<a href="greenapple.html">🍏 Green Apple</a>
-<a href="guava.html"> Guava</a>
-<a href="kiwi.html">🥝 Kiwi</a>
-<a href="mango.html">🥭 Mango</a>
-<a href="muskmelon.html">🍈 Muskmelon</a>
-<a href="olive.html">🫒 Olive</a>
-<a href="orange.html">🍊 Orange</a>
-<a href="papaya.html"> Papaya</a>
-<a href="peach.html">🍑 Peach</a>
-<a href="pear.html">🍐 Pear</a>
-<a href="pineapple.html">🍍 Pineapple</a>
-<a href="pomegranate.html">❤️ Pomegranate</a>
-<a href="strawberry.html">🍓 Strawberry</a>
-<a href="sweetlime.html">🍋 Sweet Lime</a>
-<a href="watermelon.html">🍉 Watermelon</a>
+    <span> 🟦 Blue Mode</span>
+
+    <label class="switch">
+        <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+        <span class="slider"></span>
+    </label>
+
+</div>
+<h3 class="menu-title"> Fruits image</h3>
+
 
 </div>
 
 <!-- Menu Button -->
 <span class="menu-icon" onclick="openMenu()">☰</span>
 
-<header>
-<div class="logo">🌿 PSF</div>
-<p>Freshness You Can Trust</p>
+<header class="header">
+    <img src="logo.png" class="main-logo" alt="PSF Logo">
+    <h1>PSF</h1>
+    <p>Freshness You Can Trust</p>
 </header>
 
 <section class="hero">
 
-<h1>Welcome to PSF</h1>
+<a href="fruits.html" class="box-link">
+    <div class="box">
+        <h2 id="freshTitle">🍃 Fresh Fruits</h2>
+        <p id="freshText">Click here to view all fresh fruits.</p>
+    </div>
+</a>
 
-<p>Fresh • Safe • Healthy Fruits</p>
+<a href="safe.html" class="box-link">
+    <div class="box">
+        <h2 id="safeTitle">🛡️ Safe & Hygienic</h2>
+        <p id="safeText">Every fruit is handled with care.</p>
+    </div>
+</a>
 
-<div class="box">
-<h3>🍃 Fresh Fruits</h3>
-<p>Daily fresh fruits directly selected for quality.</p>
-</div>
+<a href="qrcodes.html" class="box-link">
+    <div class="box">
+        <h2 id="qrTitle">📱 Smart QR Guide</h2>
+        <p id="qrText">Scan any fruit QR to know its health benefits.</p>
+    </div>
+</a>
+<a href="availability.html" class="box-link">
+    <div class="box">
+        <h2 id="fruitTitle">🍎 Fruit Availability</h2>
+        <p id="fruitText">
+            Check which fruits are currently available in our shop.
+        </p>
+    </div>
+</a>
 
-<div class="box">
-<h3>🛡️ Safe & Hygienic</h3>
-<p>Every fruit is handled with care.</p>
-</div>
-
-<div class="box">
-<h3>📱 Smart QR Guide</h3>
-<p>Scan any fruit QR to know its health benefits.</p>
-</div>
+<a href="quality.html" class="box-link">
+    <div class="box">
+        <h2>🔍 Fruit Quality Checker</h2>
+        <p>Learn how to identify fresh fruits and common quality warning signs.</p>
+    </div>
+</a>
 
 </section>
-<section style="text-align:center; padding:30px;">
-    <h2>Scan QR Code</h2>
-
-    <img src="qr-code.png" alt="PSF QR Code" width="180">
-
-    <p>Scan to visit our website</p>
-</section>
-
 <footer>
 <p>™© 2026 PSF<br>Freshness You Can Trust</p>
 </footer>
 
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<div class="psf-ai-section">
+    <button id="chatToggle"
+            class="psf-chat-toggle"
+            type="button"
+            onclick="window.location.href='ai.html'">
+        <span class="psf-ai-icon">🍎</span>
+        <span>PSF AI</span>
+    </button>
+</div>
+
+<script type="module" src="firebase.js"></script>
 <script src="script.js"></script>
 
 </body>
