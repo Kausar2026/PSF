@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,19 @@
 <div class="container">
 
    <img class="fruit-image" src="dragonfruit.jpg" alt="Dragon Fruit">
+   <div class="card">
+    <h2> About Dragon Fruit</h2>
+    <p>
+        Dragon Fruit is a tropical fruit that belongs to the cactus family.
+        It is known for its bright pink or yellow skin and white or red flesh
+        filled with tiny black seeds. Dragon fruit is rich in vitamin C, fiber,
+        antioxidants, magnesium, and iron, making it a highly nutritious fruit.
+        It helps improve digestion, boosts the immune system, supports heart
+        health, promotes healthy skin, and keeps the body hydrated. Its mildly
+        sweet taste and low-calorie content make it an excellent choice for a
+        healthy diet.
+    </p>
+</div>
 
     <div class="card">
         <h2>🌿 Health Benefits</h2>
@@ -34,14 +47,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 60 kcal<br>
-            Carbohydrates: 13 g<br>
-            Fiber: 3 g<br>
-            Vitamin C<br>
-            Iron<br>
-            Magnesium
-        </p>
+        <ul>
+           <li> Calories: 60 kcal<br>
+           <li> Carbohydrates: 13 g<br>
+           <li>  Fiber: 3 g<br>
+           <li> Vitamin C<br>
+           <li> Iron<br>
+           <li> Magnesium
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +84,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
