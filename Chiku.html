@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,18 @@
 <div class="container">
 
    <img class="fruit-image" src="Chiku.jpg" alt="Chiku">
+    <div class="card">
+    <h2> About Chiku (Sapodilla)</h2>
+    <p>
+        Chiku, also known as Sapodilla, is a sweet, soft, and highly nutritious
+        tropical fruit. It is rich in dietary fiber, natural sugars, vitamins A
+        and C, potassium, iron, and antioxidants. Chiku helps improve digestion,
+        provides instant energy, strengthens the immune system, supports healthy
+        bones, and promotes healthy skin. Its naturally sweet taste makes it a
+        delicious and healthy fruit that can be eaten fresh or used in
+        milkshakes, smoothies, desserts, and fruit salads.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -33,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 83 kcal<br>
-            Carbohydrates: 20 g<br>
-            Fiber: 5.3 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Iron
-        </p>
+        <ul>
+           <li> Calories: 83 kcal<br>
+           <li> Carbohydrates: 20 g<br>
+           <li> Fiber: 5.3 g<br>
+           <li> Vitamin C<br>
+           <li> Potassium<br>
+           <li> Iron
+        </ul>
     </div>
 
     <div class="card">
@@ -70,6 +82,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
