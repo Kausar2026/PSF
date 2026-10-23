@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,17 @@
 <div class="container">
 
    <img class="fruit-image" src="cherry.jpg" alt="Cherry">
-
+    <div class="card">
+    <h2>🍒 About Cherry</h2>
+    <p>
+        Cherry is a small, sweet, and nutritious fruit rich in vitamins C and A,
+        potassium, fiber, and antioxidants. It helps reduce inflammation,
+        supports heart health, improves sleep quality due to its natural
+        melatonin content, and strengthens the immune system. Cherries are also
+        beneficial for healthy skin and muscle recovery. They can be eaten fresh,
+        dried, or used in juices, desserts, and smoothies.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -32,17 +42,18 @@
         </ul>
     </div>
 
-    <div class="card">
-        <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 63 kcal<br>
-            Carbohydrates: 16 g<br>
-            Fiber: 2.1 g<br>
-            Vitamin C<br>
-            Potassium<br>
-            Water: 82%
-        </p>
-    </div>
+   <div class="card">
+    <h2>🥗 Nutrition (Per 100g)</h2>
+
+    <ul>
+        <li>Calories: 63 kcal</li>
+        <li>Carbohydrates: 16 g</li>
+        <li>Fiber: 2.1 g</li>
+        <li>Vitamin C</li>
+        <li>Potassium</li>
+        <li>Water: 82%</li>
+    </ul>
+</div>
 
     <div class="card">
         <h2>⏰ Best Time to Eat</h2>
@@ -71,6 +82,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
