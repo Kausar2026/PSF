@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -21,7 +21,18 @@
     <img class="fruit-image"
          src="https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg"
          alt="Strawberry">
-
+    <div class="card">
+    <h2>🍓 About Strawberry</h2>
+    <p>
+        Strawberry is a bright red, sweet, and juicy fruit that is rich in
+        vitamin C, manganese, dietary fiber, folate, and powerful antioxidants.
+        It helps boost the immune system, supports heart health, improves
+        digestion, promotes healthy skin, and protects the body from free
+        radicals. Strawberries are low in calories and high in water content,
+        making them a delicious and healthy choice. They can be enjoyed fresh,
+        in fruit salads, smoothies, desserts, or juices.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -36,14 +47,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 32 kcal<br>
-            Carbohydrates: 7.7 g<br>
-            Fiber: 2 g<br>
-            Vitamin C<br>
-            Manganese<br>
-            Potassium
-        </p>
+        <ul>
+           <li> Calories: 32 kcal<br>
+           <li> Carbohydrates: 7.7 g<br>
+           <li> Fiber: 2 g<br>
+           <li> Vitamin C<br>
+           <li> Manganese<br>
+           <li> Potassium
+        </ul>
     </div>
 
     <div class="card">
@@ -73,6 +84,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
