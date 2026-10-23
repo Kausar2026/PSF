@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,6 +19,18 @@
 <div class="container">
 
     <img class="fruit-image" src="kiwi.jpg" alt="Kiwi">
+    <div class="card">
+    <h2>🥝 About Kiwi</h2>
+    <p>
+        Kiwi is a small, green-fleshed fruit that is packed with nutrients and
+        has a sweet-tart taste. It is rich in vitamin C, vitamin K, vitamin E,
+        dietary fiber, potassium, and antioxidants. Kiwi helps boost the immune
+        system, improves digestion, supports heart health, promotes healthy
+        skin, and protects the body from harmful free radicals. It also helps
+        keep the body hydrated and provides natural energy. Kiwi can be enjoyed
+        fresh, in fruit salads, smoothies, desserts, or juices.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -33,14 +45,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 61 kcal<br>
-            Carbohydrates: 15 g<br>
-            Fiber: 3 g<br>
-            Vitamin C<br>
-            Vitamin K<br>
-            Potassium
-        </p>
+        <ul>
+           <li> Calories: 61 kcal<br>
+           <li> Carbohydrates: 15 g<br>
+           <li> Fiber: 3 g<br>
+           <li> Vitamin C<br>
+           <li> Vitamin K<br>
+           <li> Potassium
+        </ul>
     </div>
 
     <div class="card">
@@ -70,6 +82,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
