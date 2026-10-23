@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,19 @@
 <div class="container">
 
    <img class="fruit-image" src="muskmelon.jpg" alt="Muskmelon">
-
+   
+    <div class="card">
+    <h2>🍈 About Muskmelon</h2>
+    <p>
+        Muskmelon is a sweet, juicy, and refreshing fruit that is rich in
+        vitamins A and C, dietary fiber, potassium, and antioxidants.
+        It helps keep the body hydrated, improves digestion, supports healthy
+        skin and eyesight, and strengthens the immune system. Muskmelon is
+        low in calories and high in water content, making it an excellent
+        fruit for hot summer days. It can be enjoyed fresh, in fruit salads,
+        smoothies, or juices.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +46,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 34 kcal<br>
-            Carbohydrates: 8 g<br>
-            Fiber: 0.9 g<br>
-            Vitamin A<br>
-            Vitamin C<br>
-            Water: 90%
-        </p>
+        <ul>
+           <li> Calories: 34 kcal<br>
+           <li> Carbohydrates: 8 g<br>
+           <li> Fiber: 0.9 g<br>
+           <li> Vitamin A<br>
+           <li> Vitamin C<br>
+           <li> Water: 90%
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +83,38 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
