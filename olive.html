@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+ <script src="script.js"></script>
 <body>
 
 <header>
@@ -19,7 +19,19 @@
 <div class="container">
 
    <img class="fruit-image" src="olive.jpg" alt="Olive">
-
+   
+    <div class="card">
+    <h2>🫒 About Olive</h2>
+    <p>
+        Olive is a small, nutritious fruit that grows on olive trees and is
+        widely known for its healthy fats and antioxidant properties. It is
+        rich in vitamin E, iron, copper, calcium, and monounsaturated fats,
+        which help support heart health, reduce inflammation, improve skin
+        health, and strengthen the immune system. Olives are commonly eaten
+        fresh, pickled, or used to produce olive oil, which is considered one
+        of the healthiest cooking oils.
+    </p>
+</div>
     <div class="card">
         <h2>🌿 Health Benefits</h2>
         <ul>
@@ -34,14 +46,14 @@
 
     <div class="card">
         <h2>🥗 Nutrition (Per 100g)</h2>
-        <p>
-            Calories: 115 kcal<br>
-            Carbohydrates: 6 g<br>
-            Fiber: 3.2 g<br>
-            Healthy Fats: 11 g<br>
-            Vitamin E<br>
-            Iron
-        </p>
+        <ul>
+           <li> Calories: 115 kcal<br>
+           <li> Carbohydrates: 6 g<br>
+           <li>  Fiber: 3.2 g<br>
+           <li> Healthy Fats: 11 g<br>
+           <li> Vitamin E<br>
+           <li> Iron
+        </ul>
     </div>
 
     <div class="card">
@@ -71,6 +83,22 @@
 <footer>
     <p>™© 2026 PSF</p>
 </footer>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
