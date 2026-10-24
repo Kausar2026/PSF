@@ -1097,3 +1097,75 @@ body.blue{
 .overlay.overlay-open {
   display: block;
 }
+
+/* Compact QR Code Design */
+.qr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 12px;
+}
+
+.qr-item {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 18px 12px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.qr-item h3 {
+    font-size: 20px;
+    margin: 0 0 14px;
+}
+
+.qr-image {
+    display: block;
+    width: 170px;
+    height: 170px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto 14px;
+}
+
+.qr-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.download-link,
+.share-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px;
+}
+
+@media (max-width: 480px) {
+    .qr-item {
+        padding: 15px 10px;
+        border-radius: 20px;
+    }
+
+    .qr-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .qr-item h3 {
+        font-size: 18px;
+    }
+
+    .qr-actions {
+        gap: 8px;
+    }
+}
