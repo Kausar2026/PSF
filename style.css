@@ -1125,8 +1125,8 @@ body.blue{
 
 .qr-image {
     display: block;
-    width: 170px;
-    height: 170px;
+    width: 140px;
+    height: 140px;
     max-width: 100%;
     object-fit: contain;
     margin: 0 auto 14px;
@@ -1157,12 +1157,12 @@ body.blue{
     }
 
     .qr-image {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 
     .qr-item h3 {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .qr-actions {
