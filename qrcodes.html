@@ -13,126 +13,137 @@
 
 body {
     margin: 0;
-    padding: 16px;
     font-family: Arial, sans-serif;
-    background: #f3f7f4;
-    color: #183528;
+    background: #edf7ef;
+    color: #333;
 }
 
 .header {
-    text-align: center;
-    background: #176b45;
+    background: #159f4b;
     color: white;
-    padding: 24px 12px;
-    border-radius: 16px;
-    margin-bottom: 22px;
+    text-align: center;
+    padding: 28px 14px 22px;
 }
 
 .header h1 {
+    font-size: clamp(30px, 7vw, 48px);
     margin: 0 0 10px;
 }
 
 .header p {
+    font-size: clamp(17px, 4vw, 23px);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .qr-list {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(145px, 1fr)
-    );
-    gap: 16px;
-    max-width: 1100px;
-    margin: auto;
+    width: min(92%, 760px);
+    margin: 30px auto;
 }
 
 .qr-item {
     background: white;
-    padding: 14px;
-    border-radius: 14px;
+    border-radius: 32px;
+    padding: 28px 16px;
+    margin-bottom: 30px;
     text-align: center;
-    box-shadow: 0 3px 12px #00000012;
-    min-width: 0;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .qr-item h3 {
-    font-size: 17px;
-    margin: 4px 0 12px;
+    font-size: 27px;
+    margin: 0 0 25px;
 }
 
 .qr-image {
     display: block;
-    width: 100%;
-    max-width: 210px;
-    aspect-ratio: 1;
+    width: min(100%, 270px);
+    height: auto;
+    aspect-ratio: 1 / 1;
     object-fit: contain;
-    margin: 0 auto 12px;
+    margin: 0 auto 28px;
     background: white;
 }
 
-.qr-status {
-    font-size: 12px;
+.qr-error {
+    display: none;
+    color: #c62828;
+    font-size: 15px;
+    margin: 12px 0 20px;
     overflow-wrap: anywhere;
-    color: #a23b25;
-    margin: 8px 0;
 }
 
 .qr-actions {
-    display: grid;
-    gap: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 24px;
 }
 
-.qr-actions a,
 .qr-actions button {
-    display: block;
-    width: 100%;
-    padding: 11px 6px;
-    border: 0;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 13px;
+    border: none;
+    background: transparent;
+    color: #218653;
+    font-size: 16px;
     font-weight: bold;
+    padding: 8px 0;
     cursor: pointer;
+    font-family: inherit;
 }
 
-.download-link {
-    background: #176b45;
-    color: white;
+.qr-actions button:active {
+    opacity: 0.6;
 }
 
-.share-link {
-    background: #e4f1e9;
-    color: #176b45;
-}
-
-.qr-actions a[aria-disabled="true"] {
-    opacity: .5;
-    pointer-events: none;
+.status {
+    font-size: 14px;
+    color: #555;
+    margin-top: 12px;
+    overflow-wrap: anywhere;
 }
 
 .home-area {
     text-align: center;
-    margin: 28px 0 12px;
+    padding: 10px 15px 35px;
 }
 
 .home-btn {
     display: inline-block;
-    background: #183528;
+    padding: 13px 24px;
+    border-radius: 12px;
+    background: #159f4b;
     color: white;
-    padding: 13px 22px;
-    border-radius: 10px;
     text-decoration: none;
+    font-weight: bold;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
     .qr-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        width: 89%;
+        margin-top: 24px;
     }
 
     .qr-item {
-        padding: 9px;
+        border-radius: 28px;
+        padding: 27px 12px;
+        margin-bottom: 27px;
+    }
+
+    .qr-item h3 {
+        font-size: 25px;
+    }
+
+    .qr-image {
+        width: min(90%, 270px);
+    }
+
+    .qr-actions {
+        gap: 8px 18px;
+    }
+
+    .qr-actions button {
+        font-size: 14px;
     }
 }
 </style>
@@ -141,8 +152,8 @@ body {
 <body>
 
 <header class="header">
-    <h1>📱 PSF Smart QR Guide</h1>
-    <p>Scan a fruit QR code to explore fruit information.</p>
+    <h1>📱 Smart QR Guide</h1>
+    <p>Scan any fruit QR Code to know its health benefits.</p>
 </header>
 
 <main class="qr-list" id="qrList"></main>
@@ -152,297 +163,175 @@ body {
 </div>
 
 <script>
-"use strict";
-
-/*
- IMPORTANT:
- This page checks common filename variations.
- Keep your actual QR image files in the same
- folder as this HTML page.
-*/
-
 const fruits = [
-    {
-        name: "Apple",
-        emoji: "🍎",
-        files: [
-            "qr.apple.html .png",
-            "apple.html .png",
-            "apple.html.png",
-            "Apple.html.png",
-            "apple.png",
-            "Apple.png"
-        ]
-    },
-    {
-        name: "Anjir",
-        emoji: "🟣",
-        files: ["Anjir.html.png", "anjir.html.png", "Anjir.png", "anjir.png"]
-    },
-    {
-        name: "Avocado",
-        emoji: "🥑",
-        files: ["avocado.html.png", "Avocado.html.png", "avocado.png", "Avocado.png"]
-    },
-    {
-        name: "Banana",
-        emoji: "🍌",
-        files: ["banana.html.png", "Banana.html.png", "banana.png", "Banana.png"]
-    },
-    {
-        name: "Blackberry",
-        emoji: "🫐",
-        files: ["blackberry.html.png", "Blackberry.html.png", "blackberry.png", "Blackberry.png"]
-    },
-    {
-        name: "Black Grapes",
-        emoji: "🍇",
-        files: ["blackgrapes.html.png", "Blackgrapes.html.png", "blackgrapes.png", "Blackgrapes.png"]
-    },
-    {
-        name: "Blueberry",
-        emoji: "🫐",
-        files: ["blueberry.html.png", "Blueberry.html.png", "blueberry.png", "Blueberry.png"]
-    },
-    {
-        name: "Cherry",
-        emoji: "🍒",
-        files: ["cherry.html.png", "Cherry.html.png", "cherry.png", "Cherry.png"]
-    },
-    {
-        name: "Chiku",
-        emoji: "🍈",
-        files: ["chiku.html.png", "Chiku.html.png", "chiku.png", "Chiku.png"]
-    },
-    {
-        name: "Custard Apple",
-        emoji: "🍏",
-        files: ["custardapple.html.png", "Custardapple.html.png", "custardapple.png", "Custardapple.png"]
-    },
-    {
-        name: "Dragon Fruit",
-        emoji: "🐉",
-        files: ["dragonfruit.html.png", "Dragonfruit.html.png", "dragonfruit.png", "Dragonfruit.png"]
-    },
-    {
-        name: "Grapes",
-        emoji: "🍇",
-        files: ["grapes.html.png", "Grapes.html.png", "grapes.png", "Grapes.png"]
-    },
-    {
-        name: "Green Apple",
-        emoji: "🍏",
-        files: ["greenapple.html.png", "Greenapple.html.png", "greenapple.png", "Greenapple.png"]
-    },
-    {
-        name: "Guava",
-        emoji: "🍐",
-        files: ["guava.html.png", "Guava.html.png", "guava.png", "Guava.png"]
-    },
-    {
-        name: "Kiwi",
-        emoji: "🥝",
-        files: ["kiwi.html.png", "Kiwi.html.png", "kiwi.png", "Kiwi.png"]
-    },
-    {
-        name: "Mango",
-        emoji: "🥭",
-        files: ["mango.html.png", "Mango.html.png", "mango.png", "Mango.png"]
-    },
-    {
-        name: "Muskmelon",
-        emoji: "🍈",
-        files: ["muskmelon.html.png", "Muskmelon.html.png", "muskmelon.png", "Muskmelon.png"]
-    },
-    {
-        name: "Olive",
-        emoji: "🫒",
-        files: ["olive.html.png", "Olive.html.png", "olive.png", "Olive.png"]
-    },
-    {
-        name: "Orange",
-        emoji: "🍊",
-        files: ["orange.html.png", "Orange.html.png", "orange.png", "Orange.png"]
-    },
-    {
-        name: "Papaya",
-        emoji: "🍈",
-        files: ["papaya.html.png", "Papaya.html.png", "papaya.png", "Papaya.png"]
-    },
-    {
-        name: "Peach",
-        emoji: "🍑",
-        files: ["peach.html.png", "Peach.html.png", "peach.png", "Peach.png"]
-    },
-    {
-        name: "Pear",
-        emoji: "🍐",
-        files: ["pear.html.png", "Pear.html.png", "pear.png", "Pear.png"]
-    },
-    {
-        name: "Pineapple",
-        emoji: "🍍",
-        files: ["pineapple.html.png", "Pineapple.html.png", "pineapple.png", "Pineapple.png"]
-    },
-    {
-        name: "Pomegranate",
-        emoji: "❤️",
-        files: ["pomegranate.html.png", "Pomegranate.html.png", "pomegranate.png", "Pomegranate.png"]
-    },
-    {
-        name: "Strawberry",
-        emoji: "🍓",
-        files: ["strawberry.html.png", "Strawberry.html.png", "strawberry.png", "Strawberry.png"]
-    },
-    {
-        name: "Sweet Lime",
-        emoji: "🍋",
-        files: ["sweetlime.html.png", "Sweetlime.html.png", "sweetlime.png", "Sweetlime.png"]
-    },
-    {
-        name: "Watermelon",
-        emoji: "🍉",
-        files: ["watermelon.html.png", "Watermelon.html.png", "watermelon.png", "Watermelon.png"]
-    }
+    ["Apple", "🍎", "apple.html.png"],
+    ["Anjir", "🟣", "anjir.html.png"],
+    ["Avocado", "🥑", "avocado.html.png"],
+    ["Banana", "🍌", "banana.html.png"],
+    ["Blackberry", "🫐", "blackberry.html.png"],
+    ["Black Grapes", "🍇", "blackgrapes.html.png"],
+    ["Blueberry", "🫐", "blueberry.html.png"],
+    ["Cherry", "🍒", "cherry.html.png"],
+    ["Chiku", "🥔", "chiku.html.png"],
+    ["Custard Apple", "🍈", "custardapple.html.png"],
+    ["Dragon Fruit", "🐉", "dragonfruit.html.png"],
+    ["Grapes", "🍇", "grapes.html.png"],
+    ["Green Apple", "🍏", "greenapple.html.png"],
+    ["Guava", "🍐", "guava.html.png"],
+    ["Kiwi", "🥝", "kiwi.html.png"],
+    ["Mango", "🥭", "mango.html.png"],
+    ["Muskmelon", "🍈", "muskmelon.html.png"],
+    ["Olive", "🫒", "olive.html.png"],
+    ["Orange", "🍊", "orange.html.png"],
+    ["Papaya", "🧡", "papaya.html.png"],
+    ["Peach", "🍑", "peach.html.png"],
+    ["Pear", "🍐", "pear.html.png"],
+    ["Pineapple", "🍍", "pineapple.html.png"],
+    ["Pomegranate", "❤️", "pomegranate.html.png"],
+    ["Strawberry", "🍓", "strawberry.html.png"],
+    ["Sweet Lime", "🍋", "sweetlime.html.png"],
+    ["Watermelon", "🍉", "watermelon.html.png"]
 ];
 
 const qrList = document.getElementById("qrList");
 
-function createCard(fruit) {
+fruits.forEach(([name, emoji, file]) => {
     const card = document.createElement("section");
     card.className = "qr-item";
 
     const heading = document.createElement("h3");
-    heading.textContent = fruit.emoji + " " + fruit.name;
+    heading.textContent = `${emoji} ${name}`;
 
     const image = document.createElement("img");
     image.className = "qr-image";
-    image.alt = fruit.name + " QR Code";
+    image.alt = `${name} QR Code`;
+    image.src = file;
 
-    const status = document.createElement("p");
-    status.className = "qr-status";
-    status.textContent = "Checking image...";
+    const error = document.createElement("p");
+    error.className = "qr-error";
+    error.textContent = `QR image not found: ${file}`;
+
+    image.addEventListener("error", () => {
+        image.style.display = "none";
+        error.style.display = "block";
+    });
+
+    image.addEventListener("load", () => {
+        image.style.display = "block";
+        error.style.display = "none";
+    });
 
     const actions = document.createElement("div");
     actions.className = "qr-actions";
 
-    const download = document.createElement("a");
-    download.className = "download-link";
-    download.textContent = "⬇️ Download QR";
-    download.setAttribute("aria-disabled", "true");
+    const download = document.createElement("button");
+    download.type = "button";
+    download.textContent = "⬇️ Download QR Code";
+    download.addEventListener("click", () => {
+        downloadQR(file, name);
+    });
 
     const share = document.createElement("button");
     share.type = "button";
-    share.className = "share-link";
-    share.textContent = "📤 Share QR";
-    share.disabled = true;
+    share.textContent = "📤 Share QR Code";
+    share.addEventListener("click", () => {
+        shareQR(file, name);
+    });
+
+    const status = document.createElement("div");
+    status.className = "status";
+    status.setAttribute("aria-live", "polite");
 
     actions.append(download, share);
-    card.append(heading, image, status, actions);
+    card.append(heading, image, error, actions, status);
     qrList.appendChild(card);
+});
 
-    let resolvedURL = null;
+async function downloadQR(path, name) {
+    const card = findCard(name);
 
-    function tryFile(index) {
-        if (index >= fruit.files.length) {
-            image.hidden = true;
-            status.textContent =
-                "Image not found. Check the exact filename.";
-            return;
+    try {
+        const response = await fetch(path);
+
+        if (!response.ok) {
+            throw new Error("QR image file nahi mili.");
         }
 
-        const filename = fruit.files[index];
-        const testImage = new Image();
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
 
-        testImage.onload = function () {
-            resolvedURL = new URL(
-                filename,
-                document.baseURI
-            ).href;
+        link.href = url;
+        link.download = name.replace(/\s+/g, "-") + "-QR-PSF.png";
 
-            image.src = resolvedURL;
-            image.hidden = false;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
 
-            status.textContent = "QR image ready";
-            status.style.color = "#176b45";
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
 
-            download.href = resolvedURL;
-            download.download =
-                fruit.name.replace(/\s+/g, "-") +
-                "-QR-PSF.png";
-
-            download.removeAttribute("aria-disabled");
-            share.disabled = false;
-        };
-
-        testImage.onerror = function () {
-            tryFile(index + 1);
-        };
-
-        testImage.src = filename;
+        card.querySelector(".status").textContent =
+            "Download start ho gaya. Downloads folder check karo.";
+    } catch (err) {
+        card.querySelector(".status").textContent =
+            "Download fail hua. Image filename aur path check karo.";
+        console.error(err);
     }
-
-    image.hidden = true;
-    tryFile(0);
-
-    download.addEventListener("click", function (event) {
-        if (!resolvedURL) {
-            event.preventDefault();
-            alert("QR image nahi mili. Filename check karo.");
-        }
-    });
-
-    share.addEventListener("click", async function () {
-        if (!resolvedURL) return;
-
-        try {
-            const response = await fetch(resolvedURL);
-
-            if (!response.ok) {
-                throw new Error("Image could not be loaded");
-            }
-
-            const blob = await response.blob();
-
-            const file = new File(
-                [blob],
-                fruit.name.replace(/\s+/g, "-") +
-                    "-QR-PSF.png",
-                { type: blob.type || "image/png" }
-            );
-
-            if (navigator.share &&
-                navigator.canShare &&
-                navigator.canShare({ files: [file] })) {
-                await navigator.share({
-                    title: fruit.name + " QR Code",
-                    files: [file]
-                });
-            } else if (navigator.share) {
-                await navigator.share({
-                    title: fruit.name + " QR Code",
-                    url: resolvedURL
-                });
-            } else {
-                window.open(resolvedURL, "_blank");
-                alert(
-                    "QR image khul gayi hai. Browser menu se " +
-                    "Save ya Share kar sakte ho."
-                );
-            }
-        } catch (error) {
-            if (error.name === "AbortError") return;
-
-            window.open(resolvedURL, "_blank");
-            alert(
-                "QR image khol di hai. Ise save karke " +
-                "share kar sakte ho."
-            );
-        }
-    });
 }
 
-fruits.forEach(createCard);
+async function shareQR(path, name) {
+    const card = findCard(name);
+    const status = card.querySelector(".status");
+
+    try {
+        const response = await fetch(path);
+
+        if (!response.ok) {
+            throw new Error("QR image file nahi mili.");
+        }
+
+        const blob = await response.blob();
+        const file = new File(
+            [blob],
+            name.replace(/\s+/g, "-") + "-QR-PSF.png",
+            { type: blob.type || "image/png" }
+        );
+
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+            await navigator.share({
+                title: name + " QR Code",
+                files: [file]
+            });
+            status.textContent = "Share menu open ho gaya.";
+        } else if (navigator.share) {
+            await navigator.share({
+                title: name + " QR Code",
+                url: new URL(path, location.href).href
+            });
+            status.textContent = "Share menu open ho gaya.";
+        } else {
+            await navigator.clipboard.writeText(
+                new URL(path, location.href).href
+            );
+            status.textContent = "QR link copy ho gaya. Ab share kar sakte ho.";
+        }
+    } catch (err) {
+        if (err.name !== "AbortError") {
+            status.textContent =
+                "Share nahi hua. Pehle QR image ka filename check karo.";
+            console.error(err);
+        }
+    }
+}
+
+function findCard(name) {
+    return [...document.querySelectorAll(".qr-item")]
+        .find(card => card.querySelector("h3").textContent.includes(name));
+}
 </script>
 
 </body>
