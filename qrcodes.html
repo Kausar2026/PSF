@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,50 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PSF Smart QR Guide</title>
 <link rel="stylesheet" href="style.css">
-
-<style>
-.qr-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 22px;
-    padding: 20px;
-}
-.qr-item {
-    background: white;
-    padding: 20px;
-    border-radius: 22px;
-    box-shadow: 0 5px 18px #00000015;
-    text-align: center;
-    min-width: 0;
-}
-.qr-item h3 {
-    color: #333;
-    margin-bottom: 20px;
-}
-.qr-image {
-    display: block;
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin: 0 auto 20px;
-}
-.qr-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-}
-.qr-actions a {
-    color: #16864b;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 8px 0;
-}
-.qr-error {
-    color: #c62828;
-    font-size: 14px;
-}
-</style>
 </head>
 
 <body>
@@ -59,110 +14,500 @@
     <p>Scan any fruit QR Code to know its health benefits.</p>
 </header>
 
-<div class="qr-list" id="qrList"></div>
+<div class="qr-list">
+<div class="qr-item">
+    <h3>🍎 Apple</h3>
 
-<div class="home-area">
-    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+    <img src="./qr/apple.html.png"
+         class="qr-image"
+         alt="Apple QR Code">
+
+    <div class="qr-actions">
+        <a href="./qr/apple.html.png"
+           download="Apple-QR-PSF.png"
+           class="download-link">
+            ⬇️ Download QR Code
+        </a>
+    </div>
+</div>
+</div>
+<div class="qr-item">
+
+    <h3>🟣 Anjir</h3>
+
+    <img src="qr/Anjir.html.png" class="qr-image" alt="Anjir QR">
+
+    <div class="qr-actions">
+        <a href="qr/Anjir.html.png"
+           download="Anjir-QR-PSF.png"
+           class="download-link">
+            ⬇️ Download QR Code
+        </a>
+
+        <a href="javascript:void(0)"
+           onclick="shareQR('qr/Anjir.html.png')"
+           class="share-link">
+            📤 Share QR Code
+        </a>
+    </div>
+
 </div>
 
-<script>
-const fruits = [
-    ["🍎 Apple", "apple.html.png"],
-    ["🟣 Anjir", "Anjir.html.png"],
-    ["🥑 Avocado", "avocado.html.png"],
-    ["🍌 Banana", "banana.html.png"],
-    ["Blackberry", "blackberry.html.png"],
-    ["🍇 Black Grapes", "blackgrapes.html.png"],
-    ["🫐 Blueberry", "blueberry.html.png"],
-    ["🍒 Cherry", "cherry.html.png"],
-    ["Chiku", "chiku.html.png"],
-    ["Custard Apple", "custardapple.html.png"],
-    ["Dragon Fruit", "dragonfruit.html.png"],
-    ["🍇 Grapes", "grapes.html.png"],
-    ["🍏 Green Apple", "greenapple.html.png"],
-    ["🍐 Guava", "guava.html.png"],
-    ["🥝 Kiwi", "kiwi.html.png"],
-    ["🥭 Mango", "mango.html.png"],
-    ["🍈 Muskmelon", "muskmelon.html.png"],
-    ["🫒 Olive", "olive.html.png"],
-    ["🍊 Orange", "orange.html.png"],
-    ["Papaya", "papaya.html.png"],
-    ["🍑 Peach", "peach.html.png"],
-    ["🍐 Pear", "pear.html.png"],
-    ["🍍 Pineapple", "pineapple.html.png"],
-    ["Pomegranate", "pomegranate.html.png"],
-    ["🍓 Strawberry", "strawberry.html.png"],
-    ["🍋 Sweet Lime", "sweetlime.html.png"],
-    ["🍉 Watermelon", "watermelon.html.png"]
-];
+<div class="qr-item">
+<h3>🥑 Avocado</h3>
+<img src="qr/avocado.html.png" class="qr-image" alt="Avocado QR">
+    <div class="qr-actions">
+        <a href="qr/Avocado.html.png"
+           download="Avocado-QR-PSF.png"
+           class="download-link">
+            ⬇️ Download QR Code
+        </a>
 
-const qrList = document.getElementById("qrList");
+        <a href="javascript:void(0)"
+           onclick="shareQR('qr/Avocado.html.png')"
+           class="share-link">
+            📤 Share QR Code
+        </a>
+    </div>
+</div>
 
-fruits.forEach(([name, filename]) => {
-    const path = "qr/" + filename;
+<div class="qr-item">
+<h3>🍌 Banana</h3>
+<img src="qr/banana.html.png" class="qr-image" alt="Banana QR">
+    <div class="qr-actions">
+        <a href="qr/Banana.html.png"
+           download="Banana-QR-PSF.png"
+           class="download-link">
+            ⬇️ Download QR Code
+        </a>
 
-    const card = document.createElement("div");
-    card.className = "qr-item";
+        <a href="javascript:void(0)"
+           onclick="shareQR('qr/Banana.html.png')"
+           class="share-link">
+            📤 Share QR Code
+        </a>
+</div>
+</div>
 
-    const heading = document.createElement("h3");
-    heading.textContent = name;
+<div class="qr-item">
+<h3> Blackberry</h3>
+<img src="qr/blackberry.html.png" class="qr-image" alt="Blackberry QR">
+<div class="qr-actions">
+    <a href="qr/Blackberry.html.png"
+       download="Blackberry-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
 
-    const image = document.createElement("img");
-    image.src = path;
-    image.alt = name + " QR Code";
-    image.className = "qr-image";
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Blackberry.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
 
-    const error = document.createElement("p");
-    error.className = "qr-error";
-    error.hidden = true;
-    error.textContent = "QR image not found: " + filename;
+<div class="qr-item">
+<h3>🍇 Black Grapes</h3>
+<img src="qr/blackgrapes.html.png" class="qr-image" alt="Black Grapes QR">
+<div class="qr-actions">
+    <a href="qr/Blackgrapes.html.png"
+       download="Black-Grapes-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
 
-    image.onerror = () => {
-        error.hidden = false;
-        image.hidden = true;
-    };
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Blackgrapes.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
 
-    const actions = document.createElement("div");
-    actions.className = "qr-actions";
+<div class="qr-item">
+<h3>🫐 Blueberry</h3>
+<img src="qr/blueberry.html.png" class="qr-image" alt="Blueberry QR">
+<div class="qr-actions">
+    <a href="qr/Blueberry.html.png"
+       download="Blueberry-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
 
-    const download = document.createElement("a");
-    download.href = path;
-    download.download = name.replace(/[^\w-]/g, "") + "-QR-PSF.png";
-    download.textContent = "⬇️ Download QR Code";
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Blueberry.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
 
-    const share = document.createElement("a");
-    share.href = path;
-    share.textContent = "📤 Share QR Code";
+<div class="qr-item">
+<h3>🍒 Cherry</h3>
+<img src="qr/cherry.html.png" class="qr-image" alt="Cherry QR">
+<div class="qr-actions">
+    <a href="qr/Cherry.html.png"
+       download="Cherry-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
 
-    share.addEventListener("click", async (event) => {
-        event.preventDefault();
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Cherry.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
 
-        const url = new URL(path, document.baseURI).href;
+<div class="qr-item">
+<h3> Chiku</h3>
+<img src="qr/chiku.html.png" class="qr-image" alt="Chiku QR">
+<div class="qr-actions">
+    <a href="qr/Chiku.html.png"
+       download="Chiku-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
 
-        try {
-            if (navigator.share) {
-                await navigator.share({
-                    title: name + " QR Code",
-                    url: url
-                });
-            } else if (navigator.clipboard) {
-                await navigator.clipboard.writeText(url);
-                alert("QR image link copied. Share it with others!");
-            } else {
-                window.open(url, "_blank");
-            }
-        } catch (err) {
-            if (err.name !== "AbortError") {
-                window.open(url, "_blank");
-            }
-        }
-    });
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Chiku.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
 
-    actions.append(download, share);
-    card.append(heading, image, error, actions);
-    qrList.appendChild(card);
-});
-</script>
+<div class="qr-item">
+<h3> Custard Apple</h3>
+<img src="qr/custardapple.html.png" class="qr-image" alt="Custard Apple QR">
+<div class="qr-actions">
+    <a href="qr/Custardapple.html.png"
+       download="Custardapple-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Custardapple.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3> Dragon Fruit</h3>
+<img src="qr/dragonfruit.html.png" class="qr-image" alt="Dragon Fruit QR">
+<div class="qr-actions">
+    <a href="qr/Dragonfruit.html.png"
+       download="Dragonfruit-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Dragonfruit.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍇 Grapes</h3>
+<img src="qr/grapes.html.png" class="qr-image" alt="Grapes QR">
+<div class="qr-actions">
+    <a href="qr/Grapes.html.png"
+       download="Grapes-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Grapes.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍏 Green Apple</h3>
+<img src="qr/greenapple.html.png" class="qr-image" alt="Green Apple QR">
+<div class="qr-actions">
+    <a href="qr/Greenapple.html.png"
+       download="Greenapple-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Greenapple.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍐 Guava</h3>
+<img src="qr/guava.html.png" class="qr-image" alt="Guava QR">
+<div class="qr-actions">
+    <a href="qr/Guava.html.png"
+       download="Guava-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Guava.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🥝 Kiwi</h3>
+<img src="qr/kiwi.html.png" class="qr-image" alt="Kiwi QR">
+<div class="qr-actions">
+    <a href="qr/Kiwi.html.png"
+       download="Kiwi-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Kiwi.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🥭 Mango</h3>
+<img src="qr/mango.html.png" class="qr-image" alt="Mango QR">
+<div class="qr-actions">
+    <a href="qr/Mango.html.png"
+       download="Mango-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Mango.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍈 Muskmelon</h3>
+<img src="qr/muskmelon.html.png" class="qr-image" alt="Muskmelon QR">
+<div class="qr-actions">
+    <a href="qr/Muskmelon.html.png"
+       download="Muskmelon-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Muskmelon.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🫒 Olive</h3>
+<img src="qr/olive.html.png" class="qr-image" alt="Olive QR">
+<div class="qr-actions">
+    <a href="qr/Olive.html.png"
+       download="Olive-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Olive.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍊 Orange</h3>
+<img src="qr/orange.html.png" class="qr-image" alt="Orange QR">
+<div class="qr-actions">
+    <a href="qr/Orange.html.png"
+       download="Orange-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Orange.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3> Papaya</h3>
+<img src="qr/papaya.html.png" class="qr-image" alt="Papaya QR">
+<div class="qr-actions">
+    <a href="qr/Papaya.html.png"
+       download="Papaya-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Papaya.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍑 Peach</h3>
+<img src="qr/peach.html.png" class="qr-image" alt="Peach QR">
+<div class="qr-actions">
+    <a href="qr/Peach.html.png"
+       download="Peach-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Peach.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍐 Pear</h3>
+<img src="qr/pear.html.png" class="qr-image" alt="Pear QR">
+<div class="qr-actions">
+    <a href="qr/Pear.html.png"
+       download="Pear-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Pear.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍍 Pineapple</h3>
+<img src="qr/pineapple.html.png" class="qr-image" alt="Pineapple QR">
+<div class="qr-actions">
+    <a href="qr/Pineapple.html.png"
+       download="Pineapple-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Pineapple.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3> Pomegranate</h3>
+<img src="qr/pomegranate.html.png" class="qr-image" alt="Pomegranate QR">
+<div class="qr-actions">
+    <a href="qr/Pomegranate.html.png"
+       download="Pomegranate-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Pomegranate.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍓 Strawberry</h3>
+<img src="qr/strawberry.html.png" class="qr-image" alt="Strawberry QR">
+<div class="qr-actions">
+    <a href="qr/Strawberry.html.png"
+       download="Strawberry-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Strawberry.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍋 Sweet Lime</h3>
+<img src="qr/sweetlime.html.png" class="qr-image" alt="Sweet Lime QR">
+<div class="qr-actions">
+    <a href="qr/Sweetlime.html.png"
+       download="Sweetlime-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Sweetlime.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+<div class="qr-item">
+<h3>🍉 Watermelon</h3>
+<img src="qr/watermelon.html.png" class="qr-image" alt="Watermelon QR">
+<div class="qr-actions">
+    <a href="qr/Sweetlime.html.png"
+       download="Sweetlime-QR-PSF.png"
+       class="download-link">
+        ⬇️ Download QR Code
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="shareQR('qr/Sweetlime.html.png')"
+       class="share-link">
+        📤 Share QR Code
+    </a>
+</div>
+</div>
+
+</div>
+
+<div class="home-area">
+<a href="index.html" class="home-btn">🏠 Back to Home</a>
+</div>
 
 </body>
 </html>
