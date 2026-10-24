@@ -151,6 +151,29 @@ body {
 
 <body>
 
+/* Force QR image size on mobile */
+.qr-item img.qr-image {
+    width: 150px !important;
+    height: 150px !important;
+    max-width: 150px !important;
+    object-fit: contain;
+    display: block;
+    margin: 12px auto !important;
+}
+
+/* Make fruit cards compact */
+.qr-item {
+    padding: 15px 10px !important;
+    margin-bottom: 18px !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.qr-item h3 {
+    font-size: 19px !important;
+    margin: 0 0 10px !important;
+}
+
 <header class="header">
     <h1>📱 Smart QR Guide</h1>
     <p>Scan any fruit QR Code to know its health benefits.</p>
