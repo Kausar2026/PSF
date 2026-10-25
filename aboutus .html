@@ -6,19 +6,24 @@
     <title>About - PSF</title>
     <link rel="stylesheet" href="style.css">
 </head>
+ <script src="script.js"></script>
 <body>
 
 <header>
-    <h1>ℹ️ About PSF</h1>
-    <p>Freshness You Can Trust</p>
+    <h1 id="aboutHeading">ℹ️ About PSF</h1>
+    <p id="headerText">Freshness You Can Trust</p>
 </header>
+<select id="language" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+</select>
 
 <div class="container">
 
     <div class="card">
-        <h2>About Our Website</h2>
-        <p>
-            PSF (Perfect Seasonal Fruits) is a website that provides
+        <h2 id="aboutTitle">About Our Website</h2>
+        <p id="aboutPara">
+            PSF (Pure Safe Fresh) is a website that provides
             information about different fruits. You can learn about
             their health benefits, nutrition, best time to eat, and
             storage tips.
@@ -26,20 +31,49 @@
     </div>
 
     <div class="card">
-        <h2>Our Mission</h2>
-        <p>
+        <h2 id="missionTitle">Our Mission</h2>
+        <p id="missionPara">
             Our mission is to spread awareness about healthy eating
             and encourage people to include fresh fruits in their daily diet.
         </p>
     </div>
-
-    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+    <div class="card">
+    <h2 id="whyTitle">⭐ Why Choose PSF?</h2>
+    <ul>
+        <li id="why1">✅ Premium Quality Fruits</li>
+        <li id="why2">✅ 100% Fresh & Hygienic</li>
+        <li id="why3">✅ Carefully Selected Fruits</li>
+        <li id="why4">✅ Safe Packaging</li>
+        <li id="why5">✅ Customer Satisfaction Guaranteed</li>
+    </ul>
+</div>
+    <a href="index.html" class="home-btn" id="backHome">
+        🏠 Back to Home
+    </a>
 
 </div>
 
 <footer>
-    <p>© 2026 PSF | Freshness You Can Trust</p>
+    <p id="footerText">™© 2026 PSF | Freshness You Can Trust</p>
 </footer>
+
+<script src="script.js"></script>
+<div id="successPopup" class="success-popup" style="display:none;">
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Feedback Sent!</h2>
+
+        <p>Thank you for sharing your feedback.</p>
+
+        <button onclick="closeSuccessPopup()">Continue</button>
+
+    </div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
