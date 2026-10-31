@@ -1,556 +1,819 @@
-/* PSF WEBSITE MENU FIX */
+
+/* ==========================================
+   PSF WEBSITE - COMPLETE JAVASCRIPT
+   Pure Safe Fresh
+   ========================================== */
+
+/* ---------- MENU OPEN / CLOSE ---------- */
 
 function openMenu() {
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
 
-if (sidebar) {
-sidebar.classList.add("menu-open");
-}
+    if (sidebar) {
+        sidebar.classList.add("menu-open");
+        sidebar.setAttribute("aria-hidden", "false");
+        document.body.classList.add("menu-is-open");
+    }
 
-if (overlay) {
-overlay.classList.add("overlay-open");
-}
+    if (overlay) overlay.classList.add("overlay-open");
 }
 
 function closeMenu() {
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
 
-if (sidebar) {
-sidebar.classList.remove("menu-open");
-}
+    if (sidebar) {
+        sidebar.classList.remove("menu-open");
+        sidebar.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("menu-is-open");
+    }
 
-if (overlay) {
-overlay.classList.remove("overlay-open");
-}
-}
-
-const overlay = document.getElementById("overlay");
-if (overlay) {
-overlay.onclick = closeMenu;
+    if (overlay) overlay.classList.remove("overlay-open");
 }
 
-document.addEventListener("keydown", function (e) {
-if (e.key === "Escape") {
-closeMenu();
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.getElementById("overlay");
+
+    if (overlay) {
+        overlay.addEventListener("click", closeMenu);
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
+    });
 });
 
-// ================= TRANSLATIONS =================
+/* ---------- LANGUAGE TRANSLATIONS ---------- */
 
 const translations = {
+    en: {
+        home: "🏠 Home",
+        about: "ℹ️ About",
+        contact: "📞 Contact",
+        languageText: "🌐 Language",
+        feedback: "💬 Feedback",
+        menuTitle: "Fruits Image",
+        headerText: "Freshness You Can Trust",
+        welcome: "Welcome to PSF",
+        tagline: "Fresh • Safe • Healthy Fruits",
+        freshTitle: "🍃 Fresh Fruits",
+        freshText: "Click here to view all fresh fruits.",
+        safeTitle: "🛡️ Safe & Hygienic",
+        safeText: "Every fruit is handled with care.",
+        qrTitle: "📱 Smart QR Guide",
+        qrText: "Scan any fruit QR to know its health benefits.",
+        fruitTitle: "🍎 Fruit Availability",
+        fruitText: "Check which fruits are currently available in our shop.",
+        footerText: "™© 2026 PSF<br>Freshness You Can Trust",
+        companyAboutHeading: "About PSF Company",
+        companyAboutPara: "PSF is a company focused on building a trusted identity through innovation, quality, and a commitment to serving its customers.",
+        companyMissionTitle: "PSF Mission",
+        companyMissionPara: "Our mission is to provide valuable services, maintain high standards, and build lasting relationships with our customers.",
+        companyVisionTitle: "PSF Vision",
+        companyVisionPara: "PSF vision is to grow as a trusted company and continuously improve the way we serve our customers.",
+        companyValuesTitle: "PSF Values",
+        companyValue1: "Trust and transparency",
+        companyValue2: "Quality and reliability",
+        companyValue3: "Innovation and improvement",
+        companyValue4: "Customer satisfaction",
+        companyValue5: "Honesty and responsibility",
+        companyCommitmentTitle: "PSF Commitment",
+        companyCommitmentPara: "At PSF, we believe that trust, teamwork, and continuous improvement are important for long-term success.",
+        companyWhyTitle: "Why Choose PSF?",
+        companyWhyIntro: "At PSF, we believe in quality, trust, innovation, and customer satisfaction.",
+        companyQualityTitle: "⭐ Quality First",
+        companyQualityText: "We focus on quality and continuous improvement.",
+        companyTrustTitle: "🤝 Trust & Transparency",
+        companyTrustText: "We believe in honest communication.",
+        companyInnovationTitle: "💡 Innovation",
+        companyInnovationText: "We welcome new ideas and smart solutions.",
+        companyCustomerTitle: "❤️ Customer Focus",
+        companyCustomerText: "We aim to understand people's needs.",
+        backHome: "🏠 Back to Home",
+        pageTitle: "PSF",
+        pageTagline: "Freshness You Can Trust",
+        qualityTitle: "🍎 Why Fruit Quality Matters",
+        qualityText: "Fresh and high-quality fruits provide vitamins, minerals, fibre, and antioxidants.",
+        chemicalTitle: "⚠️ Harmful Effects of Chemicals",
+        chemical1: "❌ Excess pesticides may remain on fruit surfaces.",
+        chemical2: "❌ Artificial ripening chemicals can reduce nutritional value.",
+        chemical3: "❌ Chemical residues may cause allergies and stomach problems.",
+        chemical4: "❌ Long-term exposure may affect overall health.",
+        chemical5: "✅ Always wash fruits thoroughly before eating.",
+        washTitle: "💧 How to Wash Fruits Properly",
+        wash1: "🚰 Wash fruits under clean running water for 20–30 seconds.",
+        wash2: "🍎 Gently rub the fruit surface with your hands.",
+        wash3: "🚫 Never use soap, detergent, or bleach.",
+        wash4: "🧻 Dry fruits with a clean cloth or tissue.",
+        wash5: "🔪 Wash fruits first, then cut them using a clean knife.",
+        storageTitle: "🧊 Safe Storage Tips",
+        storage1: "🥶 Store soft fruits in the refrigerator.",
+        storage2: "🍌 Keep bananas at room temperature.",
+        storage3: "🍎 Separate ripe and unripe fruits.",
+        storage4: "📦 Store fruits in clean containers.",
+        storage5: "❌ Remove spoiled fruits immediately.",
+        healthyTitle: "🥗 Healthy Eating Tips",
+        healthy1: "🍽️ Eat 2–3 servings of fruits every day.",
+        healthy2: "🌈 Choose fruits of different colours.",
+        healthy3: "⏰ Eat fruits as a healthy snack.",
+        healthy4: "💧 Drink enough water throughout the day.",
+        healthy5: "🚫 Avoid eating damaged or mouldy fruits.",
+        avoidTitle: "🚫 Fruits to Avoid",
+        avoid1: "❌ Rotten or mouldy fruits.",
+        avoid2: "❌ Fruits with a bad smell.",
+        avoid3: "❌ Fruits with deep cuts or leakage.",
+        avoid4: "❌ Fruits showing insect damage.",
+        avoid5: "❌ Overly bruised fruits.",
+        environmentTitle: "🌍 Protect the Environment",
+        environment1: "♻️ Reduce food waste.",
+        environment2: "🛍️ Use reusable shopping bags.",
+        environment3: "🌱 Compost fruit peels whenever possible.",
+        environment4: "🍃 Buy local and seasonal fruits.",
+        environment5: "💚 Support eco-friendly farming.",
+        factsTitle: "💡 Did You Know?",
+        fact1: "🍊 Vitamin C helps support immunity.",
+        fact2: "🍌 Bananas provide natural energy.",
+        fact3: "🍎 Apples are a good source of fibre.",
+        fact4: "🍇 Grapes contain antioxidants.",
+        fact5: "🥭 Seasonal fruits are usually fresher.",
+        promiseTitle: "✅ PSF Safety Promise",
+        promiseText: "At PSF (Pure Safe Fresh), we are committed to providing fresh, safe, hygienic, and premium-quality fruits.",
+        homeButton: "🏠 Back to Home"
+    },
 
-en: {  
-    home: "🏠 Home",  
-    about: "ℹ️ About",  
-    contact: "📞 Contact",  
-    languageText: "🌐 Language",  
-    feedback: "💬 Feedback",  
-    menuTitle: "Fruits Image",  
-
-    headerText: "Freshness You Can Trust",  
-    welcome: "Welcome to PSF",  
-    tagline: "Fresh • Safe • Healthy Fruits",  
-
-    freshTitle: "🍃 Fresh Fruits",  
-    freshText: "Click here to view all fresh fruits.",  
-
-    safeTitle: "🛡️ Safe & Hygienic",  
-    safeText: "Every fruit is handled with care.",  
-
-    qrTitle: "📱 Smart QR Guide",  
-    qrText: "Scan any fruit QR to know its health benefits.",  
-      
-    fruitTitle: "🍎 Fruit Availability",
-
-fruitText: "Check which fruits are currently available in our shop.",
-
-footerText: "™© 2026 PSF<br>Freshness You Can Trust",  
-
-     
-    // ===== ABOUT PSF COMPANY - ENGLISH =====  
-
-    companyAboutHeading: "About PSF Company",  
-    companyAboutPara: "PSF is a company focused on building a trusted identity through innovation, quality, and a commitment to serving its customers. We aim to develop meaningful solutions and create value through our work.",  
-
-    companyMissionTitle: "PSF Mission",  
-    companyMissionPara: "Our mission is to provide valuable services, maintain high standards, and build lasting relationships with our customers through trust and dedication.",  
-
-    companyVisionTitle: "PSF Vision",  
-    companyVisionPara: "PSF vision is to grow as a trusted company, embrace new opportunities, and continuously improve the way we serve our customers.",  
-
-    companyValuesTitle: "PSF Values",  
-    companyValue1: "Trust and transparency",  
-    companyValue2: "Quality and reliability",  
-    companyValue3: "Innovation and improvement",  
-    companyValue4: "Customer satisfaction",  
-    companyValue5: "Honesty and responsibility",  
-
-    companyCommitmentTitle: "PSF Commitment",  
-    companyCommitmentPara: "At PSF, we believe that trust, teamwork, and continuous improvement are important for long-term success. We are committed to working toward our goals and creating a positive experience for our customers.",  
-
-    companyWhyTitle: "Why Choose PSF?",  
-    companyWhyIntro: "At PSF, we believe in quality, trust, innovation, and customer satisfaction. Our goal is to create a reliable and user-friendly experience for everyone.",  
-
-    companyQualityTitle: "⭐ Quality First",  
-    companyQualityText: "We focus on quality and continuous improvement in everything we do.",  
-
-    companyTrustTitle: "🤝 Trust & Transparency",  
-    companyTrustText: "We believe in honest communication and building long-term relationships.",  
-
-    companyInnovationTitle: "💡 Innovation",  
-    companyInnovationText: "We welcome new ideas and smart solutions to improve the user experience.",  
-
-    companyCustomerTitle: "❤️ Customer Focus",  
-    companyCustomerText: "We aim to understand people's needs and make our services simple and accessible."  
-                    ,  
-
-    backHome: "🏠 Back to Home",  
-
-    pageTitle: "PSF",  
-    pageTagline: "Freshness You Can Trust",  
-
-    qualityTitle: "🍎 Why Fruit Quality Matters",  
-    qualityText: "Fresh and high-quality fruits are rich in vitamins, minerals, fibre, and antioxidants. They help improve immunity, support digestion, maintain heart health, and provide natural energy. Choosing fresh fruits also ensures better taste, nutrition, and overall well-being.",  
-
-    chemicalTitle: "⚠️ Harmful Effects of Chemicals",  
-    chemical1: "❌ Excess pesticides may remain on fruit surfaces.",  
-    chemical2: "❌ Artificial ripening chemicals can reduce nutritional value.",  
-    chemical3: "❌ Chemical residues may cause allergies and stomach problems.",  
-    chemical4: "❌ Long-term exposure may affect overall health.",  
-    chemical5: "✅ Always wash fruits thoroughly before eating.",  
-
-    washTitle: "💧 How to Wash Fruits Properly",  
-    wash1: "🚰 Wash fruits under clean running water for 20–30 seconds.",  
-    wash2: "🍎 Gently rub the fruit surface with your hands.",  
-    wash3: "🚫 Never use soap, detergent, or bleach.",  
-    wash4: "🧻 Dry fruits with a clean cloth or tissue.",  
-    wash5: "🔪 Wash fruits first, then cut them using a clean knife.",  
-
-    storageTitle: "🧊 Safe Storage Tips",  
-    storage1: "🥶 Store soft fruits in the refrigerator.",  
-    storage2: "🍌 Keep bananas at room temperature.",  
-    storage3: "🍎 Separate ripe and unripe fruits.",  
-    storage4: "📦 Store fruits in clean containers.",  
-    storage5: "❌ Remove spoiled fruits immediately.",  
-
-    healthyTitle: "🥗 Healthy Eating Tips",  
-    healthy1: "🍽️ Eat 2–3 servings of fruits every day.",  
-    healthy2: "🌈 Choose fruits of different colours.",  
-    healthy3: "⏰ Eat fruits in the morning or as a healthy snack.",  
-    healthy4: "💧 Drink enough water throughout the day.",  
-    healthy5: "🚫 Avoid eating damaged or mouldy fruits.",  
-
-    avoidTitle: "🚫 Fruits to Avoid",  
-    avoid1: "❌ Rotten or mouldy fruits.",  
-    avoid2: "❌ Fruits with a bad smell.",  
-    avoid3: "❌ Fruits with deep cuts or leakage.",  
-    avoid4: "❌ Fruits showing insect damage.",  
-    avoid5: "❌ Overly bruised fruits.",  
-
-    environmentTitle: "🌍 Protect the Environment",  
-    environment1: "♻️ Reduce food waste.",  
-    environment2: "🛍️ Use reusable shopping bags.",  
-    environment3: "🌱 Compost fruit peels whenever possible.",  
-    environment4: "🍃 Buy local and seasonal fruits.",  
-    environment5: "💚 Support eco-friendly farming.",  
-
-    factsTitle: "💡 Did You Know?",  
-    fact1: "🍊 Vitamin C helps strengthen immunity.",  
-    fact2: "🍌 Bananas provide instant natural energy.",  
-    fact3: "🍎 Apples are a good source of fibre.",  
-    fact4: "🍇 Grapes contain powerful antioxidants.",  
-    fact5: "🥭 Seasonal fruits are usually fresher and more nutritious.",  
-
-    promiseTitle: "✅ PSF Safety Promise",  
-
-    promiseText: "At PSF (Pure Safe Fresh), we are committed to providing our customers with fresh, safe, hygienic, and premium-quality fruits. Quality, cleanliness, and trust are the core values of our business. We ensure that every customer receives carefully selected, nutritious, and high-quality fruits. Our mission is to build lasting customer trust while promoting a healthy and sustainable lifestyle.",  
-
-   homeButton: "🏠 Back to Home"  
-      
-},  
-
-hi: {  
-    home: "🏠 होम",  
-    about: "ℹ️ हमारे बारे में",  
-    contact: "📞 संपर्क",  
-    languageText: "🌐 भाषा",  
-    feedback: "💬 प्रतिक्रिया",  
-    menuTitle: "फलों की तस्वीरें",  
-      
-
-    headerText: "ताज़गी जिस पर आप भरोसा करें",  
-    welcome: "PSF में आपका स्वागत है",  
-    tagline: "ताज़े • सुरक्षित • स्वास्थ्यवर्धक फल",  
-
-    freshTitle: "🍃 ताज़े फल",  
-    freshText: "सभी ताज़े फलों की जानकारी देखने के लिए यहाँ क्लिक करें।",  
-
-    safeTitle: "🛡️ सुरक्षित एवं स्वच्छ",  
-    safeText: "हर फल को पूरी सावधानी से संभाला जाता है।",  
-
-    qrTitle: "📱 स्मार्ट QR गाइड",  
-    qrText: "QR स्कैन करके फलों की जानकारी प्राप्त करें।",  
-    fruitTitle: "🍎 फलों की उपलब्धता",  
-    fruitText: "यहाँ देखें कि हमारी दुकान में इस समय कौन-कौन से फल उपलब्ध हैं।",  
-    footerText: "™© 2026 PSF<br>ताज़गी जिस पर आप भरोसा करें",  
-
-      
-    // ===== ABOUT PSF COMPANY - HINDI =====  
-
-    companyAboutHeading: "PSF कंपनी के बारे में",  
-    companyAboutPara: "PSF एक ऐसी कंपनी है जो नवाचार, गुणवत्ता और ग्राहकों की सेवा के प्रति समर्पण के माध्यम से अपनी विश्वसनीय पहचान बनाने पर ध्यान देती है। हमारा उद्देश्य उपयोगी समाधान विकसित करना और अपने कार्यों के माध्यम से मूल्य प्रदान करना है।",  
-
-    companyMissionTitle: "PSF मिशन",  
-    companyMissionPara: "हमारा मिशन उपयोगी सेवाएँ प्रदान करना, उच्च मानकों को बनाए रखना और विश्वास एवं समर्पण के माध्यम से अपने ग्राहकों के साथ लंबे समय तक अच्छे संबंध बनाना है।",  
-
-    companyVisionTitle: "PSF विज़न",  
-    companyVisionPara: "हमारा विज़न एक विश्वसनीय कंपनी के रूप में आगे बढ़ना, नए अवसरों को अपनाना और अपने ग्राहकों को सेवाएँ प्रदान करने के तरीकों में लगातार सुधार करना है।",  
-
-    companyValuesTitle: "PSF मूल्य",  
-    companyValue1: "विश्वास और पारदर्शिता",  
-    companyValue2: "गुणवत्ता और विश्वसनीयता",  
-    companyValue3: "नवाचार और सुधार",  
-    companyValue4: "ग्राहक संतुष्टि",  
-    companyValue5: "ईमानदारी और जिम्मेदारी",  
-
-    companyCommitmentTitle: "PSF प्रतिबद्धता",  
-    companyCommitmentPara: "PSF में हमारा मानना है कि लंबे समय की सफलता के लिए विश्वास, टीमवर्क और निरंतर सुधार महत्वपूर्ण हैं। हम अपने लक्ष्यों की दिशा में काम करने और अपने ग्राहकों को सकारात्मक अनुभव प्रदान करने के लिए प्रतिबद्ध हैं।",  
-
-    companyWhyTitle: "PSF को क्यों चुनें?",  
-    companyWhyIntro: "PSF में हम गुणवत्ता, विश्वास, नवाचार और ग्राहक संतुष्टि में विश्वास करते हैं। हमारा उद्देश्य सभी के लिए एक विश्वसनीय और उपयोग में आसान अनुभव प्रदान करना है।",  
-
-    companyQualityTitle: "⭐ गुणवत्ता सबसे पहले",  
-    companyQualityText: "हम अपने हर कार्य में गुणवत्ता और निरंतर सुधार पर ध्यान देते हैं।",  
-
-    companyTrustTitle: "🤝 विश्वास और पारदर्शिता",  
-    companyTrustText: "हम ईमानदार संवाद और लंबे समय तक अच्छे संबंध बनाने में विश्वास करते हैं।",  
-
-    companyInnovationTitle: "💡 नवाचार",  
-    companyInnovationText: "हम उपयोगकर्ता के अनुभव को बेहतर बनाने के लिए नए विचारों और स्मार्ट समाधानों का स्वागत करते हैं।",  
-
-    companyCustomerTitle: "❤️ ग्राहक प्राथमिकता",  
-    companyCustomerText: "हम लोगों की ज़रूरतों को समझने और अपनी सेवाओं को सरल एवं सभी के लिए सुलभ बनाने का प्रयास करते हैं।",  
-
-
-    backHome: "🏠 होम पर वापस जाएँ",  
-
-    pageTitle: "PSF",  
-    pageTagline: "ताज़गी जिस पर आप भरोसा कर सकते हैं",  
-
-    qualityTitle: "🍎 फलों की गुणवत्ता क्यों महत्वपूर्ण है",  
-    qualityText: "ताज़े और उच्च गुणवत्ता वाले फल विटामिन, खनिज, फाइबर और एंटीऑक्सीडेंट से भरपूर होते हैं। ये रोग प्रतिरोधक क्षमता बढ़ाते हैं, पाचन में सुधार करते हैं, हृदय को स्वस्थ रखते हैं और प्राकृतिक ऊर्जा प्रदान करते हैं। ताज़े फल चुनने से बेहतर स्वाद, अधिक पोषण और अच्छा स्वास्थ्य मिलता है।",  
-
-    chemicalTitle: "⚠️ रसायनों के हानिकारक प्रभाव",  
-    chemical1: "❌ फलों की सतह पर कीटनाशकों के अवशेष रह सकते हैं।",  
-    chemical2: "❌ कृत्रिम रूप से पकाने वाले रसायन पोषण कम कर सकते हैं।",  
-    chemical3: "❌ रासायनिक अवशेष एलर्जी और पेट की समस्याएँ पैदा कर सकते हैं।",  
-    chemical4: "❌ लंबे समय तक रसायनों के संपर्क से स्वास्थ्य पर बुरा प्रभाव पड़ सकता है।",  
-    chemical5: "✅ फल खाने से पहले उन्हें हमेशा अच्छी तरह धोएँ।",  
-
-    washTitle: "💧 फलों को सही तरीके से कैसे धोएँ",  
-     wash1: "🚰 फलों को 20–30 सेकंड तक साफ बहते पानी में धोएँ।",  
-    wash2: "🍎 फलों की सतह को हाथों से हल्के से रगड़ें।",  
-    wash3: "🚫 कभी भी साबुन, डिटर्जेंट या ब्लीच का उपयोग न करें।",  
-    wash4: "🧻 साफ कपड़े या टिश्यू से फलों को सुखाएँ।",  
-    wash5: "🔪 पहले फल धोएँ, फिर साफ चाकू से काटें।",  
-
-    storageTitle: "🧊 सुरक्षित भंडारण के सुझाव",  
-    storage1: "🥶 मुलायम फलों को फ्रिज में रखें।",  
-    storage2: "🍌 केले को कमरे के तापमान पर रखें।",  
-    storage3: "🍎 पके और कच्चे फलों को अलग रखें।",  
-    storage4: "📦 फलों को साफ और सूखे डिब्बों में रखें।",  
-    storage5: "❌ खराब फलों को तुरंत हटा दें।",  
-
-    healthyTitle: "🥗 स्वस्थ खाने के सुझाव",  
-    healthy1: "🍽️ प्रतिदिन 2–3 बार फलों का सेवन करें।",  
-    healthy2: "🌈 अलग-अलग रंगों के फल चुनें।",  
-    healthy3: "⏰ सुबह या हेल्दी स्नैक के रूप में फल खाएँ।",  
-    healthy4: "💧 पूरे दिन पर्याप्त मात्रा में पानी पिएँ।",  
-    healthy5: "🚫 खराब या फफूंदी लगे फल न खाएँ।",  
-
-    avoidTitle: "🚫 किन फलों से बचें",  
-    avoid1: "❌ सड़े या फफूंदी लगे फल।",  
-    avoid2: "❌ बदबू वाले फल।",  
-    avoid3: "❌ गहरे कटे या रस निकलते हुए फल।",  
-    avoid4: "❌ कीड़ों द्वारा खराब किए गए फल।",  
-    avoid5: "❌ बहुत अधिक दबे या चोट लगे फल।",  
-
-    environmentTitle: "🌍 पर्यावरण की रक्षा करें",  
-    environment1: "♻️ भोजन की बर्बादी कम करें।",  
-    environment2: "🛍️ पुनः उपयोग होने वाले शॉपिंग बैग का उपयोग करें।",  
-    environment3: "🌱 जहाँ संभव हो फलों के छिलकों से खाद बनाएँ।",  
-    environment4: "🍃 स्थानीय और मौसमी फल खरीदें।",  
-    environment5: "💚 पर्यावरण-अनुकूल खेती का समर्थन करें।",  
-
-    factsTitle: "💡 क्या आप जानते हैं?",  
-    fact1: "🍊 विटामिन C रोग प्रतिरोधक क्षमता बढ़ाने में मदद करता है।",  
-    fact2: "🍌 केला तुरंत प्राकृतिक ऊर्जा प्रदान करता है।",  
-    fact3: "🍎 सेब फाइबर का अच्छा स्रोत है।",  
-    fact4: "🍇 अंगूर शक्तिशाली एंटीऑक्सीडेंट से भरपूर होते हैं।",  
-    fact5: "🥭 मौसमी फल अधिक ताज़े और पौष्टिक होते हैं।",  
-
-    promiseTitle: "✅ PSF सुरक्षा का वादा",  
-
-    promiseText: "PSF (Pure Safe Fresh) ग्राहकों को ताज़े, सुरक्षित, स्वच्छ एवं उच्च गुणवत्ता वाले फल उपलब्ध कराने के लिए प्रतिबद्ध है। गुणवत्ता, स्वच्छता और विश्वसनीयता हमारे मूल सिद्धांत हैं। हम सुनिश्चित करते हैं कि प्रत्येक ग्राहक तक सर्वोत्तम गुणवत्ता वाले फल पहुँचें तथा उन्हें सुरक्षित, पौष्टिक और स्वास्थ्यवर्धक उत्पाद प्राप्त हों। हमारा उद्देश्य ग्राहकों का विश्वास बनाए रखना और स्वस्थ जीवनशैली को बढ़ावा देना है।",  
-
-    homeButton: "🏠 होम पेज पर वापस जाएँ"  
-}
-
+    hi: {
+        home: "🏠 होम",
+        about: "ℹ️ हमारे बारे में",
+        contact: "📞 संपर्क",
+        languageText: "🌐 भाषा",
+        feedback: "💬 प्रतिक्रिया",
+        menuTitle: "फलों की तस्वीरें",
+        headerText: "ताज़गी जिस पर आप भरोसा करें",
+        welcome: "PSF में आपका स्वागत है",
+        tagline: "ताज़े • सुरक्षित • स्वास्थ्यवर्धक फल",
+        freshTitle: "🍃 ताज़े फल",
+        freshText: "सभी ताज़े फलों की जानकारी देखने के लिए यहाँ क्लिक करें।",
+        safeTitle: "🛡️ सुरक्षित एवं स्वच्छ",
+        safeText: "हर फल को पूरी सावधानी से संभाला जाता है।",
+        qrTitle: "📱 स्मार्ट QR गाइड",
+        qrText: "QR स्कैन करके फलों की जानकारी प्राप्त करें।",
+        fruitTitle: "🍎 फलों की उपलब्धता",
+        fruitText: "यहाँ देखें कि दुकान में कौन-कौन से फल उपलब्ध हैं।",
+        footerText: "™© 2026 PSF<br>ताज़गी जिस पर आप भरोसा करें",
+        companyAboutHeading: "PSF कंपनी के बारे में",
+        companyAboutPara: "PSF गुणवत्ता, नवाचार और ग्राहकों की सेवा के प्रति समर्पित कंपनी है।",
+        companyMissionTitle: "PSF मिशन",
+        companyMissionPara: "हमारा मिशन अच्छी सेवाएँ देना और ग्राहकों के साथ भरोसेमंद संबंध बनाना है।",
+        companyVisionTitle: "PSF विज़न",
+        companyVisionPara: "हमारा विज़न एक विश्वसनीय कंपनी के रूप में आगे बढ़ना है।",
+        companyValuesTitle: "PSF मूल्य",
+        companyValue1: "विश्वास और पारदर्शिता",
+        companyValue2: "गुणवत्ता और विश्वसनीयता",
+        companyValue3: "नवाचार और सुधार",
+        companyValue4: "ग्राहक संतुष्टि",
+        companyValue5: "ईमानदारी और जिम्मेदारी",
+        companyCommitmentTitle: "PSF प्रतिबद्धता",
+        companyCommitmentPara: "हम विश्वास, टीमवर्क और निरंतर सुधार में विश्वास करते हैं।",
+        companyWhyTitle: "PSF को क्यों चुनें?",
+        companyWhyIntro: "हम गुणवत्ता, विश्वास और ग्राहक संतुष्टि में विश्वास करते हैं।",
+        companyQualityTitle: "⭐ गुणवत्ता सबसे पहले",
+        companyQualityText: "हम गुणवत्ता पर ध्यान देते हैं।",
+        companyTrustTitle: "🤝 विश्वास और पारदर्शिता",
+        companyTrustText: "हम ईमानदार संवाद में विश्वास करते हैं।",
+        companyInnovationTitle: "💡 नवाचार",
+        companyInnovationText: "हम नए विचारों का स्वागत करते हैं।",
+        companyCustomerTitle: "❤️ ग्राहक प्राथमिकता",
+        companyCustomerText: "हम ग्राहकों की ज़रूरतों को समझने का प्रयास करते हैं।",
+        backHome: "🏠 होम पर वापस जाएँ",
+        pageTitle: "PSF",
+        pageTagline: "ताज़गी जिस पर आप भरोसा करें",
+        qualityTitle: "🍎 फलों की गुणवत्ता क्यों ज़रूरी है",
+        qualityText: "ताज़े फल विटामिन, मिनरल, फाइबर और एंटीऑक्सिडेंट प्रदान करते हैं।",
+        chemicalTitle: "⚠️ रसायनों के हानिकारक प्रभाव",
+        chemical1: "❌ फलों की सतह पर कीटनाशक रह सकते हैं।",
+        chemical2: "❌ कृत्रिम पकाने की प्रक्रिया गुणवत्ता को प्रभावित कर सकती है।",
+        chemical3: "❌ रसायनों के अवशेष परेशानी पैदा कर सकते हैं।",
+        chemical4: "❌ लंबे समय तक संपर्क स्वास्थ्य को प्रभावित कर सकता है।",
+        chemical5: "✅ खाने से पहले फल अच्छी तरह धोएँ।",
+        washTitle: "💧 फल सही तरीके से कैसे धोएँ",
+        wash1: "🚰 फलों को साफ बहते पानी में धोएँ।",
+        wash2: "🍎 हाथों से फल की सतह को हल्के से रगड़ें।",
+        wash3: "🚫 साबुन या डिटर्जेंट का उपयोग न करें।",
+        wash4: "🧻 साफ कपड़े से फल सुखाएँ।",
+        wash5: "🔪 काटने से पहले फल धोएँ।",
+        storageTitle: "🧊 सुरक्षित भंडारण",
+        storage1: "🥶 नरम फलों को फ्रिज में रखें।",
+        storage2: "🍌 केले कमरे के तापमान पर रखें।",
+        storage3: "🍎 पके और कच्चे फल अलग रखें।",
+        storage4: "📦 फलों को साफ डिब्बों में रखें।",
+        storage5: "❌ खराब फलों को तुरंत हटा दें।",
+        healthyTitle: "🥗 स्वस्थ खानपान सुझाव",
+        healthy1: "🍽️ रोज़ फल खाएँ।",
+        healthy2: "🌈 अलग-अलग रंगों के फल चुनें।",
+        healthy3: "⏰ फलों को हेल्दी स्नैक की तरह खाएँ।",
+        healthy4: "💧 दिनभर पर्याप्त पानी पिएँ।",
+        healthy5: "🚫 खराब फल न खाएँ।",
+        avoidTitle: "🚫 किन फलों से बचें",
+        avoid1: "❌ सड़े या फफूँद लगे फल।",
+        avoid2: "❌ बदबू वाले फल।",
+        avoid3: "❌ कटे या रिसाव वाले फल।",
+        avoid4: "❌ कीड़ों से खराब फल।",
+        avoid5: "❌ बहुत दबे हुए फल।",
+        environmentTitle: "🌍 पर्यावरण की रक्षा करें",
+        environment1: "♻️ भोजन की बर्बादी कम करें।",
+        environment2: "🛍️ दोबारा इस्तेमाल होने वाले बैग लें।",
+        environment3: "🌱 फलों के छिलकों से खाद बनाएँ।",
+        environment4: "🍃 स्थानीय और मौसमी फल खरीदें।",
+        environment5: "💚 पर्यावरण के अनुकूल खेती को बढ़ावा दें।",
+        factsTitle: "💡 क्या आप जानते हैं?",
+        fact1: "🍊 विटामिन C रोग प्रतिरोधक क्षमता को सहारा देता है।",
+        fact2: "🍌 केले प्राकृतिक ऊर्जा देते हैं।",
+        fact3: "🍎 सेब फाइबर का अच्छा स्रोत हैं।",
+        fact4: "🍇 अंगूर में एंटीऑक्सिडेंट होते हैं।",
+        fact5: "🥭 मौसमी फल आमतौर पर ताज़े होते हैं।",
+        promiseTitle: "✅ PSF सुरक्षा वादा",
+        promiseText: "PSF (Pure Safe Fresh) में हम ताज़े, सुरक्षित और स्वच्छ फलों के लिए प्रतिबद्ध हैं।",
+        homeButton: "🏠 होम पर वापस जाएँ"
+    }
 };
-
-// ================= LANGUAGE =================
 
 function changeLanguage() {
+    const language = document.getElementById("language");
+    if (!language) return;
 
-let language = document.getElementById("language");  
+    const selected = translations[language.value] || translations.en;
 
-let lang = language  
-    ? language.value  
-    : (localStorage.getItem("language") || "en");  
+    Object.keys(selected).forEach(function (key) {
+        const element = document.getElementById(key);
+        if (element) element.innerHTML = selected[key];
+    });
 
-for (let id in translations[lang]) {  
+    const feedback = document.getElementById("feedbackMenu");
+    if (feedback) feedback.textContent = selected.feedback;
 
-    let element = document.getElementById(id);  
+    const languageText = document.getElementById("languageText");
+    if (languageText) languageText.textContent = selected.languageText;
 
-    if (element) {  
-        element.innerHTML = translations[lang][id];  
-    }  
-
-}  
-
-localStorage.setItem("language", lang);
-
+    document.documentElement.lang = language.value === "hi" ? "hi" : "en";
 }
 
-window.onload = function () {
+/* ---------- THEME ---------- */
 
-let language = document.getElementById("language");  
+function toggleTheme() {
+    const toggle = document.getElementById("themeToggle");
+    if (!toggle) return;
 
-if (language) {  
-    language.value = localStorage.getItem("language") || "en";  
-  
-}  
+    document.body.classList.toggle("blue", toggle.checked);
 
-changeLanguage();
+    try {
+        localStorage.setItem("theme", toggle.checked ? "blue" : "default");
+    } catch (error) {
+        console.warn("Theme preference could not be saved.", error);
+    }
+}
 
-};
-// =========================
-// Feedback System
-// =========================
+window.addEventListener("load", function () {
+    try {
+        if (localStorage.getItem("theme") === "blue") {
+            document.body.classList.add("blue");
+            const toggle = document.getElementById("themeToggle");
+            if (toggle) toggle.checked = true;
+        }
+    } catch (error) {
+        console.warn("Theme preference could not be loaded.", error);
+    }
+});
+
+/* ==========================================
+   PART 2 - FEEDBACK, SEARCH & VOICE SEARCH
+   ========================================== */
+
+/* ---------- FEEDBACK SYSTEM ---------- */
 
 let selectedRating = 0;
 
-// Close Feedback
-function closeFeedback() {
-document.getElementById("feedbackPopup").style.display = "none";
-}
-
-// Open Feedback (Menu se)
 function openFeedback() {
-document.getElementById("feedbackPopup").style.display = "flex";
+    closeMenu();
+
+    let popup = document.getElementById("feedbackPopup");
+
+    if (!popup) {
+        createFeedbackPopup();
+        popup = document.getElementById("feedbackPopup");
+    }
+
+    if (popup) popup.style.display = "flex";
 }
 
-// Rating
-function rate(rating) {
-selectedRating = rating;
+function closeFeedback() {
+    const popup = document.getElementById("feedbackPopup");
+    if (popup) popup.style.display = "none";
+}
 
-const stars = document.querySelectorAll(".stars span");  
+function createFeedbackPopup() {
+    if (document.getElementById("feedbackPopup")) return;
 
-stars.forEach((star, index) => {  
-    if (index < rating) {  
-        star.innerHTML = "★";  
-        star.classList.add("active");  
-    } else {  
-        star.innerHTML = "☆";  
-        star.classList.remove("active");  
-    }  
+    const popup = document.createElement("div");
+    popup.id = "feedbackPopup";
+    popup.className = "feedback-popup";
+
+    popup.innerHTML = `
+        <div class="feedback-card">
+            <button type="button" class="feedback-close"
+                onclick="closeFeedback()">×</button>
+
+            <h2>💬 Your Feedback Matters</h2>
+            <p>How was your experience with PSF?</p>
+
+            <div class="feedback-stars">
+                ${[1, 2, 3, 4, 5].map(number =>
+                    `<button type="button"
+                    class="feedback-star"
+                    data-rating="${number}"
+                    aria-label="${number} stars">★</button>`
+                ).join("")}
+            </div>
+
+            <textarea id="feedbackComment"
+                placeholder="Write your feedback..."
+                rows="4"></textarea>
+
+            <button type="button"
+                class="feedback-submit"
+                onclick="submitFeedback()">Submit Feedback</button>
+
+            <p id="feedbackMessage" aria-live="polite"></p>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelectorAll(".feedback-star").forEach(function (star) {
+        star.addEventListener("click", function () {
+            selectedRating = Number(this.dataset.rating);
+            updateFeedbackStars();
+        });
+    });
+
+    popup.addEventListener("click", function (event) {
+        if (event.target === popup) closeFeedback();
+    });
+}
+
+function updateFeedbackStars() {
+    document.querySelectorAll(".feedback-star").forEach(function (star) {
+        const rating = Number(star.dataset.rating);
+        star.style.color = rating <= selectedRating ? "#f5a623" : "#aaa";
+    });
+}
+
+function submitFeedback() {
+    const comment = document.getElementById("feedbackComment");
+    const message = document.getElementById("feedbackMessage");
+
+    if (!comment || !message) return;
+
+    if (selectedRating === 0) {
+        message.textContent = "Please select a star rating.";
+        return;
+    }
+
+    const feedbackData = {
+        rating: selectedRating,
+        comment: comment.value.trim(),
+        page: document.title,
+        date: new Date().toISOString()
+    };
+
+    try {
+        const oldFeedback = JSON.parse(
+            localStorage.getItem("psfFeedback") || "[]"
+        );
+
+        oldFeedback.push(feedbackData);
+
+        localStorage.setItem(
+            "psfFeedback",
+            JSON.stringify(oldFeedback)
+        );
+
+        message.textContent = "Thank you! Your feedback is saved on this device.";
+
+        comment.value = "";
+        selectedRating = 0;
+        updateFeedbackStars();
+
+        setTimeout(closeFeedback, 1800);
+
+    } catch (error) {
+        message.textContent = "Unable to save feedback on this device.";
+        console.error("Feedback error:", error);
+    }
+}
+
+/* ---------- SEARCH SYSTEM ---------- */
+
+function searchFruit() {
+    const searchBox = document.getElementById("searchBox");
+    if (!searchBox) return;
+
+    const searchValue = searchBox.value.toLowerCase().trim();
+
+    const items = document.querySelectorAll(
+        ".fruit-card, .product-card, .feature-card, [data-search]"
+    );
+
+    let visibleCount = 0;
+
+    items.forEach(function (item) {
+        const text = (
+            item.innerText + " " +
+            (item.dataset.search || "")
+        ).toLowerCase();
+
+        const matched = text.includes(searchValue);
+
+        item.style.display = matched ? "" : "none";
+
+        if (matched) visibleCount++;
+    });
+
+    const result = document.getElementById("searchResult");
+
+    if (result) {
+        result.textContent = searchValue
+            ? visibleCount + " result(s) found"
+            : "";
+    }
+}
+
+/* ---------- SEARCH INPUT ---------- */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBox = document.getElementById("searchBox");
+    const micBtn = document.getElementById("micBtn");
+
+    if (searchBox) {
+        searchBox.addEventListener("input", function () {
+            if (micBtn) {
+                micBtn.style.display =
+                    this.value.trim() === "" ? "block" : "none";
+            }
+
+            searchFruit();
+        });
+
+        searchBox.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                searchFruit();
+            }
+        });
+    }
 });
 
+/* ---------- VOICE SEARCH ---------- */
+
+function startVoiceSearch() {
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert("Voice search is not supported in this browser.");
+        return;
+    }
+
+    const searchBox = document.getElementById("searchBox");
+
+    if (!searchBox) {
+        alert("Search box not found.");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = function () {
+        const micBtn = document.getElementById("micBtn");
+        if (micBtn) micBtn.classList.add("listening");
+    };
+
+    recognition.onresult = function (event) {
+        const spokenText = event.results[0][0].transcript;
+
+        searchBox.value = spokenText;
+        searchFruit();
+    };
+
+    recognition.onerror = function (event) {
+        console.error("Voice search error:", event.error);
+    };
+
+    recognition.onend = function () {
+        const micBtn = document.getElementById("micBtn");
+        if (micBtn) micBtn.classList.remove("listening");
+    };
+
+    recognition.start();
 }
 
-// Popup Create
+/* ---------- CLEAR SEARCH ---------- */
+
+function clearSearch() {
+    const searchBox = document.getElementById("searchBox");
+
+    if (searchBox) {
+        searchBox.value = "";
+        searchFruit();
+    }
+
+    const result = document.getElementById("searchResult");
+    if (result) result.textContent = "";
+}
+
+/* ---------- BACK TO TOP ---
+function backToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* ==========================================
+   PART 3 - AUTOMATIC IMAGE SLIDER
+   PSF PRODUCT CAROUSEL
+   ========================================== */
+
+/*
+HTML mein slider ka structure:
+<div id="heroImageSlider">
+  <img class="hero-fruit-image is-active" src="fresh-fruit.png" alt="Fresh fruits">
+  <img class="hero-fruit-image" src="cut-fruits.png" alt="Cut fruits">
+  <img class="hero-fruit-image" src="juice.png" alt="Fresh juice">
+  <img class="hero-fruit-image" src="gift-hamper.png" alt="Gift hamper">
+  <div class="hero-slider-dots">
+    <button class="active" aria-label="Slide 1"></button>
+    <button aria-label="Slide 2"></button>
+    <button aria-label="Slide 3"></button>
+    <button aria-label="Slide 4"></button>
+  </div>
+</div>
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
 
-const popup = `  
-<div id="feedbackPopup" class="feedback-popup" style="display:none;">  
-    <div class="feedback-box">  
+    /* ---------- HERO IMAGE SLIDER ---------- */
 
-        <span class="close-btn" onclick="closeFeedback()">&times;</span>  
+    const slider = document.getElementById("heroImageSlider");
 
-        <h2>⭐ Rate Your Experience</h2>  
-        <p>How was your experience with PSF?</p>  
+    if (slider) {
+        const images = slider.querySelectorAll(".hero-fruit-image");
+        const dots = slider.querySelectorAll(".hero-slider-dots button");
 
-        <div class="stars">  
-            <span onclick="rate(1)">☆</span>  
-            <span onclick="rate(2)">☆</span>  
-            <span onclick="rate(3)">☆</span>  
-            <span onclick="rate(4)">☆</span>  
-            <span onclick="rate(5)">☆</span>  
-        </div>  
+        if (images.length > 1) {
+            let currentSlide = 0;
+            let sliderTimer;
 
-        <textarea id="feedbackText"  
-        placeholder="Write your feedback (Optional)"></textarea>  
+            function showSlide(index) {
+                currentSlide = (index + images.length) % images.length;
 
-        <button onclick="submitFeedback()">  
-            Submit Feedback  
-        </button>  
+                images.forEach(function (image, i) {
+                    image.classList.toggle(
+                        "is-active",
+                        i === currentSlide
+                    );
+                });
 
-    </div>  
-</div>  
+                dots.forEach(function (dot, i) {
+                    dot.classList.toggle(
+                        "active",
+                        i === currentSlide
+                    );
+                });
+            }
 
-<div id="successPopup" class="success-popup" style="display:none;">  
-    <div class="success-box">  
-        <div class="success-icon">✓</div>  
-        <h2>Feedback Sent!</h2>  
-        <p>Thank you for sharing your feedback.</p>  
-        <button onclick="closeSuccessPopup()">Continue</button>  
-    </div>  
-</div>  
-`;  
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
 
-document.body.insertAdjacentHTML("beforeend", popup);  
+            function startSlider() {
+                clearInterval(sliderTimer);
+                sliderTimer = setInterval(nextSlide, 5000);
+            }
 
-setTimeout(() => {  
+            function restartSlider() {
+                startSlider();
+            }
 
-    const lastFeedback = localStorage.getItem("feedbackDate");  
+            dots.forEach(function (dot, index) {
+                dot.addEventListener("click", function () {
+                    showSlide(index);
+                    restartSlider();
+                });
+            });
 
-    if (lastFeedback) {  
+            showSlide(0);
+            startSlider();
 
-        const days =  
-            (Date.now() - Number(lastFeedback)) /  
-            (1000 * 60 * 60 * 24);  
+            /* Pause while user hovers */
+            slider.addEventListener("mouseenter", function () {
+                clearInterval(sliderTimer);
+            });
 
-        if (days < 30) return;  
-    }  
+            slider.addEventListener("mouseleave", function () {
+                startSlider();
+            });
+        }
+    }
 
-    document.getElementById("feedbackPopup").style.display = "flex";  
+    /* ---------- PRODUCT CATEGORY FILTER ---------- */
 
-}, 20000);
+    const categoryButtons = document.querySelectorAll(
+        "[data-category-filter]"
+    );
+
+    const productCards = document.querySelectorAll(
+        "[data-category]"
+    );
+
+    categoryButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const selectedCategory = button.dataset.categoryFilter;
+
+            categoryButtons.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            productCards.forEach(function (card) {
+                const category = card.dataset.category;
+
+                card.style.display =
+                    selectedCategory === "all" ||
+                    category === selectedCategory
+                        ? ""
+                        : "none";
+            });
+        });
+    });
+
+    /* ---------- FEEDBACK AUTO POPUP ---------- */
+
+    createFeedbackPopup();
+
+    try {
+        const lastFeedback = localStorage.getItem("feedbackDate");
+        const now = Date.now();
+        const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+
+        if (!lastFeedback || now - Number(lastFeedback) > thirtyDays) {
+            setTimeout(function () {
+                const popup = document.getElementById("feedbackPopup");
+
+                if (popup) {
+                    popup.style.display = "flex";
+                }
+            }, 20000);
+        }
+    } catch (error) {
+        console.warn("Feedback preference unavailable.", error);
+    }
+
+    /* ---------- SAVE FEEDBACK DATE ---------- */
+
+    const feedbackSubmit = document.querySelector(".feedback-submit");
+
+    if (feedbackSubmit) {
+        feedbackSubmit.addEventListener("click", function () {
+            try {
+                localStorage.setItem("feedbackDate", String(Date.now()));
+            } catch (error) {
+                console.warn("Could not save feedback date.", error);
+            }
+        });
+    }
+
+    /* ---------- LANGUAGE RESTORE ---------- */
+
+    const languageSelect = document.getElementById("language");
+
+    if (languageSelect) {
+        try {
+            const savedLanguage = localStorage.getItem("psfLanguage");
+
+            if (savedLanguage) {
+                languageSelect.value = savedLanguage;
+            }
+        } catch (error) {
+            console.warn("Language preference unavailable.", error);
+        }
+
+        changeLanguage();
+
+        languageSelect.addEventListener("change", function () {
+            changeLanguage();
+
+            try {
+                localStorage.setItem(
+                    "psfLanguage",
+                    languageSelect.value
+                );
+            } catch (error) {
+                console.warn("Could not save language.", error);
+            }
+        });
+    }
+
+    /* ---------- THEME RESTORE ---------- */
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (themeToggle) {
+        try {
+            const savedTheme = localStorage.getItem("theme");
+
+            themeToggle.checked = savedTheme === "blue";
+            document.body.classList.toggle(
+                "blue",
+                themeToggle.checked
+            );
+        } catch (error) {
+            console.warn("Theme preference unavailable.", error);
+        }
+    }
 
 });
 
-// Submit Feedback
-async function submitFeedback() {
+/* ==========================================
+   PSF WHATSAPP ORDER BUTTON
+   ========================================== */
 
-if (selectedRating === 0) {  
-    alert("Please select a star rating.");  
-    return;  
-}  
+function orderOnWhatsApp(productName) {
+    const phone = "918709921210";
 
-const comment =  
-    document.getElementById("feedbackText").value;  
+    const product = productName || "PSF Products";
 
-try {  
+    const message =
+        "Hello PSF! I want to know more about " +
+        product +
+        ". Please share details.";
 
-    await window.saveFeedback(  
-        selectedRating,  
-        comment,  
-        document.title  
-    );  
+    const whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
 
-    // 30 Days Lock  
-    localStorage.setItem(  
-        "feedbackDate",  
-        Date.now()  
-    );  
-
-    closeFeedback();  
-
-    document.getElementById("successPopup").style.display = "flex";  
-
-    selectedRating = 0;  
-    document.getElementById("feedbackText").value = "";  
-
-    document.querySelectorAll(".stars span").forEach(star => {  
-        star.innerHTML = "☆";  
-        star.classList.remove("active");  
-    });  
-
-} catch (error) {  
-
-    alert(error.message);  
-
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
 }
 
+/* ==========================================
+   PSF LOCATION - COMING SOON
+   ========================================== */
+
+function showPSFLocation() {
+    alert("PSF Store Location Coming Soon!");
 }
 
-// Close Success Popup
-function closeSuccessPopup() {
-document.getElementById("successPopup").style.display = "none";
-}
-function toggleTheme(){
+/* ==========================================
+   PSF NEWSLETTER MESSAGE
+   ========================================== */
 
-const toggle = document.getElementById("themeToggle");  
+function subscribePSF() {
+    const emailInput = document.getElementById("newsletterEmail");
 
-if(toggle.checked){  
-    document.body.classList.add("blue");  
-    localStorage.setItem("theme","blue");  
-}else{  
-    document.body.classList.remove("blue");  
-    localStorage.setItem("theme","default");  
-}
+    if (!emailInput) return;
 
-}
+    const email = emailInput.value.trim();
 
-window.addEventListener("load",()=>{
+    if (!email || !email.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+    }
 
-if(localStorage.getItem("theme")==="blue"){  
-    document.body.classList.add("blue");  
-    document.getElementById("themeToggle").checked=true;  
+    alert("Thank you for your interest in PSF!");
+
+    emailInput.value = "";
 }
 
+/* ==========================================
+   PSF YEAR
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const yearElement = document.getElementById("currentYear");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 });
-async function shareQR(image){
 
-if(navigator.share){  
-
-    await navigator.share({  
-        title:"PSF QR Code",  
-        text:"Scan this PSF QR Code",  
-        url:location.origin + "/" + image  
-    });  
-
-}else{  
-
-    alert("Sharing is not supported on this device.");  
-
-}
-
-}
-function startVoiceSearch() {
-
-if (!('webkitSpeechRecognition' in window)) {  
-    alert("Voice Search is not supported in this browser.");  
-    return;  
-}  
-
-const recognition = new webkitSpeechRecognition();  
-
-recognition.lang = "en-IN";  
-recognition.interimResults = false;  
-recognition.maxAlternatives = 1;  
-
-recognition.onstart = function(){  
-    alert("Listening...");  
-};  
-
-recognition.onresult = function(event){  
-    const text = event.results[0][0].transcript;  
-    document.getElementById("searchBox").value = text;  
-    searchFruit();  
-};  
-
-recognition.onerror = function(event){  
-    alert("Error: " + event.error);  
-};  
-
-recognition.start();
-
-}
-const searchBox = document.getElementById("searchBox");
-const micBtn = document.getElementById("micBtn");
-
-searchBox.addEventListener("input", function () {
-if
+/* ==========================================
+   END OF PSF SCRIPT
+   ========================================== */
