@@ -553,4 +553,3 @@ const searchBox = document.getElementById("searchBox");
 const micBtn = document.getElementById("micBtn");
 
 searchBox.addEventListener("input", function () {
-if
