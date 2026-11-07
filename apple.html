@@ -1,20 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple - PSF</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>🍎 Apple</h1>
-    <p>Freshness You Can Trust </p>
+    <h1 id="fruitHeading">🍎 Apple</h1>
+    <p id="tagline">Freshness You Can Trust</p>
 </header>
-<select id="language" onchange="changeLanguage()">
+
+<select id="fruitLanguage" onchange="changeFruitLanguage()">
     <option value="en">English</option>
     <option value="hi">हिन्दी</option>
 </select>
@@ -22,82 +22,197 @@
 <div class="container">
 
     <img class="fruit-image" src="Apple.png" alt="Apple">
+
     <div class="card">
-    <h2>🍎 About Apple</h2>
-    <p>
-        Apple is one of the most popular and nutritious fruits in the world.
-        It is rich in vitamins, fiber, and antioxidants that help keep the body
-        healthy. Apples come in different varieties such as Red, Green, and
-        Golden apples, each with its own unique taste and benefits.
-    </p>
-</div>
+        <h2 id="aboutTitle">🍎 About Apple</h2>
+        <p id="aboutText">
+            Apple is one of the most popular and nutritious fruits in the world.
+            It is rich in vitamins, fiber, and antioxidants that help keep the body
+            healthy. Apples come in different varieties such as Red, Green, and
+            Golden apples, each with its own unique taste and benefits.
+        </p>
+    </div>
+
     <div class="card">
-        <h2>🌿 Health Benefits</h2>
+        <h2 id="benefitsTitle">🌿 Health Benefits</h2>
         <ul>
-            <li>❤️ Supports Heart Health</li>
-            <li>🌾 Rich in Dietary Fiber</li>
-            <li>🛡️ Good Source of Vitamin C</li>
-            <li>🍽️ Improves Digestion</li>
-            <li>⚡ Gives Natural Energy</li>
-            <li>🧠 Rich in Antioxidants</li>
+            <li id="benefit1">❤️ Supports Heart Health</li>
+            <li id="benefit2">🌾 Rich in Dietary Fiber</li>
+            <li id="benefit3">🛡️ Good Source of Vitamin C</li>
+            <li id="benefit4">🍽️ Improves Digestion</li>
+            <li id="benefit5">⚡ Gives Natural Energy</li>
+            <li id="benefit6">🧠 Rich in Antioxidants</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>🥗 Nutrition (Per 100g)</h2>
+        <h2 id="nutritionTitle">🥗 Nutrition (Per 100g)</h2>
         <ul>
-           <li>  Calories: 52 kcal</li>
-           <li> Carbohydrates: 14 g</li>
-           <li>Fiber: 2.4 g</li>
-           <li> Vitamin C</li>
-           <li> Potassium</li>
-           <li>  Water: 86%</li>
+            <li id="nutrition1">Calories: 52 kcal</li>
+            <li id="nutrition2">Carbohydrates: 14 g</li>
+            <li id="nutrition3">Fiber: 2.4 g</li>
+            <li id="nutrition4">Vitamin C</li>
+            <li id="nutrition5">Potassium</li>
+            <li id="nutrition6">Water: 86%</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>⏰ Best Time to Eat</h2>
+        <h2 id="timeTitle">⏰ Best Time to Eat</h2>
         <ul>
-            <li>🌞 Morning</li>
-            <li>🥗 Mid-Morning Snack</li>
-            <li>🏃 Before Workout</li>
-            <li>🌇 Evening Healthy Snack</li>
+            <li id="time1">🌞 Morning</li>
+            <li id="time2">🥗 Mid-Morning Snack</li>
+            <li id="time3">🏃 Before Workout</li>
+            <li id="time4">🌇 Evening Healthy Snack</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>❄️ Storage Tips</h2>
+        <h2 id="storageTitle">❄️ Storage Tips</h2>
         <ul>
-            <li>Keep in a cool and dry place.</li>
-            <li>Refrigerate for longer freshness.</li>
-            <li>Wash before eating.</li>
-            <li>Avoid damaged or bruised apples.</li>
+            <li id="storage1">Keep in a cool and dry place.</li>
+            <li id="storage2">Refrigerate for longer freshness.</li>
+            <li id="storage3">Wash before eating.</li>
+            <li id="storage4">Avoid damaged or bruised apples.</li>
         </ul>
     </div>
 
-    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+<a href="fruit-information.html" class="home-btn" id="homeButton">
+    </a>
 
 </div>
 
 <footer>
-    <p>™© 2026 PSF</p
-    </footer>
+    <p id="footerText">™© 2026 PSF</p>
+</footer>
+
 <div id="successPopup" class="success-popup" style="display:none;">
     <div class="success-box">
-
         <div class="success-icon">✓</div>
-
         <h2>Feedback Sent!</h2>
-
         <p>Thank you for sharing your feedback.</p>
-
         <button onclick="closeSuccessPopup()">Continue</button>
-
     </div>
 </div>
 
 <script type="module" src="firebase.js"></script>
 <script src="script.js"></script>
 
-</body>
+<script>
+const fruitTranslations = {
+    en: {
+        fruitHeading: "🍎 Apple",
+        tagline: "Freshness You Can Trust",
+        aboutTitle: "🍎 About Apple",
+        aboutText: "Apple is one of the most popular and nutritious fruits in the world. It is rich in vitamins, fiber, and antioxidants that help keep the body healthy. Apples come in different varieties such as Red, Green, and Golden apples, each with its own unique taste and benefits.",
+
+        benefitsTitle: "🌿 Health Benefits",
+        benefit1: "❤️ Supports Heart Health",
+        benefit2: "🌾 Rich in Dietary Fiber",
+        benefit3: "🛡️ Good Source of Vitamin C",
+        benefit4: "🍽️ Improves Digestion",
+        benefit5: "⚡ Gives Natural Energy",
+        benefit6: "🧠 Rich in Antioxidants",
+
+        nutritionTitle: "🥗 Nutrition (Per 100g)",
+        nutrition1: "Calories: 52 kcal",
+        nutrition2: "Carbohydrates: 14 g",
+        nutrition3: "Fiber: 2.4 g",
+        nutrition4: "Vitamin C",
+        nutrition5: "Potassium",
+        nutrition6: "Water: 86%",
+
+        timeTitle: "⏰ Best Time to Eat",
+        time1: "🌞 Morning",
+        time2: "🥗 Mid-Morning Snack",
+        time3: "🏃 Before Workout",
+        time4: "🌇 Evening Healthy Snack",
+
+        storageTitle: "❄️ Storage Tips",
+        storage1: "Keep in a cool and dry place.",
+        storage2: "Refrigerate for longer freshness.",
+        storage3: "Wash before eating.",
+        storage4: "Avoid damaged or bruised apples.",
+
+        homeButton: "🏠 Back to Home",
+        footerText: "™© 2026 PSF"
+    },
+
+    hi: {
+        fruitHeading: "🍎 सेब",
+        tagline: "ताज़गी जिस पर आप भरोसा कर सकते हैं",
+        aboutTitle: "🍎 सेब के बारे में",
+        aboutText: "सेब दुनिया के सबसे लोकप्रिय और पौष्टिक फलों में से एक है। इसमें विटामिन, फाइबर और एंटीऑक्सीडेंट पाए जाते हैं, जो शरीर को स्वस्थ रखने में मदद करते हैं। सेब की लाल, हरी और सुनहरी जैसी विभिन्न किस्में होती हैं। हर किस्म का अपना खास स्वाद और लाभ होता है।",
+
+        benefitsTitle: "🌿 स्वास्थ्य लाभ",
+        benefit1: "❤️ हृदय को स्वस्थ रखने में सहायक",
+        benefit2: "🌾 आहार फाइबर से भरपूर",
+        benefit3: "🛡️ विटामिन C का अच्छा स्रोत",
+        benefit4: "🍽️ पाचन में सहायक",
+        benefit5: "⚡ प्राकृतिक ऊर्जा प्रदान करता है",
+        benefit6: "🧠 एंटीऑक्सीडेंट से भरपूर",
+
+        nutritionTitle: "🥗 पोषण (प्रति 100 ग्राम)",
+        nutrition1: "कैलोरी: 52 किलो कैलोरी",
+        nutrition2: "कार्बोहाइड्रेट: 14 ग्राम",
+        nutrition3: "फाइबर: 2.4 ग्राम",
+        nutrition4: "विटामिन C",
+        nutrition5: "पोटैशियम",
+        nutrition6: "पानी: 86%",
+
+        timeTitle: "⏰ खाने का सही समय",
+        time1: "🌞 सुबह",
+        time2: "🥗 सुबह के समय हल्के नाश्ते में",
+        time3: "🏃 व्यायाम से पहले",
+        time4: "🌇 शाम के स्वस्थ नाश्ते के रूप में",
+
+        storageTitle: "❄️ सुरक्षित रखने के सुझाव",
+        storage1: "ठंडी और सूखी जगह पर रखें।",
+        storage2: "अधिक समय तक ताज़ा रखने के लिए फ्रिज में रखें।",
+        storage3: "खाने से पहले धो लें।",
+        storage4: "खराब या चोट लगे सेब खाने से बचें।",
+
+        homeButton: "🏠 होम पेज पर वापस जाएँ",
+        footerText: "™© 2026 PSF"
+    }
+};
+
+function changeFruitLanguage() {
+    const selector = document.getElementById("fruitLanguage");
+    const lang = selector.value;
+    const content = fruitTranslations[lang];
+
+    document.documentElement.lang = lang;
+
+    Object.keys(content).forEach(function(id) {
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.textContent = content[id];
+        }
+    });
+
+    try {
+        localStorage.setItem("language", lang);
+    } catch (error) {
+        // Page translation still works if storage is unavailable.
+    }
+}
+
+// Restore the user's previously selected language.
+(function initializeFruitLanguage() {
+    let savedLanguage = "en";
+
+    try {
+        savedLanguage = localStorage.getItem("language") || "en";
+    } catch (error) {}
+
+    const selector = document.getElementById("fruitLanguage");
+    selector.value = fruitTranslations[savedLanguage] ? savedLanguage : "en";
+
+    changeFruitLanguage();
+})();
+</script>
+
+<body class="fruit-page">
 </html>
